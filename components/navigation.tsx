@@ -11,7 +11,7 @@ const navLinks = [
   { href: "#results", label: "Results" },
   { href: "#providers", label: "Our Team" },
   { href: "#testimonials", label: "Reviews" },
-  { href: "#contact", label: "Contact" },
+  { href: "#location", label: "Location" },
 ]
 
 interface NavigationProps {
