@@ -155,22 +155,24 @@ export function FAQSection({ onBookClick }: FAQSectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-3 mb-10"
+            className="mb-10 -mx-6 px-6"
           >
-            {faqs.map((category) => (
-              <button
-                key={category.category}
-                onClick={() => setActiveCategory(category.category)}
-                className={cn(
-                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
-                  activeCategory === category.category
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
-                    : "bg-secondary text-muted-foreground hover:bg-muted"
-                )}
-              >
-                {category.category}
-              </button>
-            ))}
+            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory md:justify-center md:flex-wrap md:overflow-visible">
+              {faqs.map((category) => (
+                <button
+                  key={category.category}
+                  onClick={() => setActiveCategory(category.category)}
+                  className={cn(
+                    "px-5 sm:px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 snap-start touch-manipulation",
+                    activeCategory === category.category
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                      : "bg-secondary text-muted-foreground hover:bg-muted active:bg-muted"
+                  )}
+                >
+                  {category.category}
+                </button>
+              ))}
+            </div>
           </motion.div>
 
           {/* FAQ items */}

@@ -116,26 +116,28 @@ export function TreatmentsSection({ onBookClick }: TreatmentsSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="mb-12 -mx-6 px-6"
         >
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={cn(
-                "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
-                activeCategory === cat.id
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
-                  : "bg-card text-muted-foreground hover:bg-muted"
-              )}
-            >
-              {cat.label}
-            </button>
-          ))}
+          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory md:justify-center md:flex-wrap md:overflow-visible">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={cn(
+                  "px-5 sm:px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 snap-start touch-manipulation",
+                  activeCategory === cat.id
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                    : "bg-card text-muted-foreground hover:bg-muted active:bg-muted"
+                )}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
         {/* Treatments Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredTreatments.map((treatment, index) => (
               <motion.div

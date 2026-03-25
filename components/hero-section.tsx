@@ -48,11 +48,11 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
               look and feel authentically you.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button
                 onClick={onBookClick}
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg rounded-full group"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full group w-full sm:w-auto touch-manipulation"
               >
                 Book Your Consultation
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -60,27 +60,27 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-foreground/20 hover:border-primary hover:text-primary px-8 py-6 text-lg rounded-full"
+                className="border-2 border-foreground/20 hover:border-primary hover:text-primary px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full w-full sm:w-auto touch-manipulation"
                 asChild
               >
                 <a href="#treatments">Explore Treatments</a>
               </Button>
             </div>
             
-            <div className="mt-12 flex items-center gap-8">
+            <div className="mt-12 grid grid-cols-3 gap-4 sm:flex sm:items-center sm:gap-8">
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl font-semibold text-foreground">15+</p>
-                <p className="text-sm text-muted-foreground">Years Experience</p>
+                <p className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground">15+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Years Experience</p>
               </div>
-              <div className="w-px h-12 bg-border" />
+              <div className="hidden sm:block w-px h-12 bg-border" />
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl font-semibold text-foreground">10k+</p>
-                <p className="text-sm text-muted-foreground">Happy Clients</p>
+                <p className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground">10k+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Happy Clients</p>
               </div>
-              <div className="w-px h-12 bg-border" />
+              <div className="hidden sm:block w-px h-12 bg-border" />
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl font-semibold text-foreground">98%</p>
-                <p className="text-sm text-muted-foreground">Satisfaction</p>
+                <p className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground">98%</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Satisfaction</p>
               </div>
             </div>
           </motion.div>

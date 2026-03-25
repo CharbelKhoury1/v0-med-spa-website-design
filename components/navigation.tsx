@@ -79,7 +79,7 @@ export function Navigation({ onBookClick }: NavigationProps) {
         </div>
 
         <button
-          className="lg:hidden p-2 text-foreground"
+          className="lg:hidden p-3 -mr-2 text-foreground touch-manipulation"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -94,23 +94,30 @@ export function Navigation({ onBookClick }: NavigationProps) {
           isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
+        <nav className="container mx-auto px-6 py-4 flex flex-col gap-1 pb-safe">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-lg font-medium text-foreground py-2 border-b border-border"
+              className="text-lg font-medium text-foreground py-4 border-b border-border active:bg-muted/50 transition-colors touch-manipulation"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
+          <a
+            href="tel:+15551234567"
+            className="flex items-center gap-2 text-lg font-medium text-foreground py-4 border-b border-border touch-manipulation"
+          >
+            <Phone className="h-5 w-5 text-primary" />
+            (555) 123-4567
+          </a>
           <Button
             onClick={() => {
               setIsMobileMenuOpen(false)
               onBookClick()
             }}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground mt-4 rounded-full"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground mt-4 py-6 text-lg rounded-full touch-manipulation"
           >
             Book Now
           </Button>

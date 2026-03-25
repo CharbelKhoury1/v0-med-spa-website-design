@@ -51,7 +51,7 @@ export function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className="relative aspect-[4/5] rounded-2xl overflow-hidden cursor-ew-resize select-none"
+      className="relative aspect-[4/5] sm:aspect-[4/5] rounded-2xl overflow-hidden cursor-ew-resize select-none touch-manipulation"
       onMouseMove={handleMouseMove}
       onMouseDown={() => setIsDragging(true)}
       onMouseUp={() => setIsDragging(false)}
@@ -86,13 +86,13 @@ export function BeforeAfterSlider({
         className="absolute top-0 bottom-0 w-1 bg-white shadow-lg"
         style={{ left: `calc(${sliderPosition}% - 2px)` }}
       >
-        {/* Handle */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center">
+        {/* Handle - larger for touch */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-12 sm:h-12 rounded-full bg-white shadow-xl flex items-center justify-center touch-manipulation">
           <div className="flex items-center gap-1">
-            <svg className="w-3 h-3 text-foreground rotate-180" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-4 h-4 sm:w-3 sm:h-3 text-foreground rotate-180" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
-            <svg className="w-3 h-3 text-foreground" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-4 h-4 sm:w-3 sm:h-3 text-foreground" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
           </div>
@@ -186,13 +186,13 @@ export function ResultsSection() {
               {results[activeResult].description}
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {results.map((result, index) => (
                 <button
                   key={result.id}
                   onClick={() => setActiveResult(index)}
                   className={cn(
-                    "w-full text-left p-4 rounded-xl transition-all duration-300 border-2",
+                    "w-full text-left p-3 sm:p-4 rounded-xl transition-all duration-300 border-2 touch-manipulation active:scale-[0.98]",
                     activeResult === index
                       ? "bg-primary/5 border-primary"
                       : "bg-card border-transparent hover:border-border"
