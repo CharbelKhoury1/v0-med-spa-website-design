@@ -160,7 +160,7 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
         )}
 
         {/* Treatments Grid */}
-        <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 pb-8 sm:pb-0 snap-x snap-mandatory scrollbar-hide">
+        <div className="flex items-stretch overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 pb-8 sm:pb-0 snap-x snap-mandatory scrollbar-hide">
           <AnimatePresence mode="popLayout">
             {displayedTreatments.map((treatment, index) => (
               <motion.div
@@ -170,7 +170,7 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-base hover:shadow-2xl transition-all duration-500 border border-black/5 flex flex-col h-full flex-shrink-0 w-[300px] sm:w-auto snap-center"
+                className="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-base hover:shadow-2xl transition-all duration-500 border border-black/5 flex flex-col flex-shrink-0 w-[300px] sm:w-auto snap-center"
               >
                 {/* Main clickable area */}
                 <Link href={`/treatments/${treatment.slug}`} className="absolute inset-0 z-0" aria-label={`View ${treatment.name} details`} />
