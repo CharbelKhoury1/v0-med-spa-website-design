@@ -1,0 +1,16 @@
+{
+  "name": "Verdun Clinic by Dr. Maya Adhami",
+  "short_name": "Verdun Clinic",
+  "description": "Expert ENT and Facial Plastic Surgery in Beirut, Lebanon.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

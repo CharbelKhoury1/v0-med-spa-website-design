@@ -97,7 +97,7 @@ export function LocationSection({ onBookClick }: LocationSectionProps) {
           >
             <div className="w-full flex justify-center">
               <Button
-                onClick={() => window.open('https://maps.app.goo.gl/K7WDRa3uiRtzS516A', '_blank')}
+                onClick={() => window.open('https://maps.app.goo.gl/TpQscxx1knZXW9g39', '_blank')}
                 className="w-full sm:w-auto px-12 py-7 rounded-full text-xl font-bold bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/20"
               >
                 Get Directions
@@ -107,7 +107,7 @@ export function LocationSection({ onBookClick }: LocationSectionProps) {
 
             <div className="relative w-full aspect-square sm:aspect-video rounded-[3rem] overflow-hidden shadow-2xl border border-black/5 bg-white">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.339243764434!2d35.48529241517031!3d33.88219098065261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f172782e38c91%3A0xc66db1d4f20ec719!2sVerdun%2C%20Beirut%2C%20Lebanon!5e0!3m2!1sen!2slb!4v1711494723456!5m2!1sen!2slb"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.9567990598823!2d35.48208407570954!3d33.88353742614539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f1731422ff305%3A0xdb8012b465fca231!2sVerdun%20Clinic%20by%20Dr%20Maya%20Adhami!5e0!3m2!1sen!2slb!4v1711490912185!5m2!1sen!2slb"
                 className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
                 allowFullScreen
                 loading="lazy"

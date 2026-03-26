@@ -39,16 +39,16 @@ const specialties = [
 
 export function SpecialtiesGrid() {
   return (
-    <section id="specialties" className="py-12 md:py-20 bg-secondary/50">
+    <section id="specialties" className="py-12 md:py-16 bg-secondary/50">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-10 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Your Health & Beauty, Tailored</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Discover our specialized care options, from quick skin treatments to expert medical consultations.
           </p>
         </div>
 
-        <div className="flex overflow-x-auto sm:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 pb-4 sm:pb-0 snap-x snap-mandatory scrollbar-hide touch-pan-x">
+        <div className="flex overflow-x-auto sm:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 pb-4 sm:pb-0 snap-x snap-mandatory scrollbar-hide">
           {specialties.map((item, index) => (
             <Link 
               key={item.title} 

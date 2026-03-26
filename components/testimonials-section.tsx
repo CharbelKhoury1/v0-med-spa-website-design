@@ -77,14 +77,14 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section id="testimonials" className="py-12 md:py-32 bg-secondary/10 overflow-hidden relative">
+    <section id="testimonials" className="py-12 md:py-24 bg-secondary/10 overflow-hidden relative">
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8 md:mb-16"
+          className="text-center mb-8 md:mb-12"
         >
           <span className="text-primary font-medium uppercase tracking-widest text-sm mb-4 block">
             Client Success Stories

@@ -24,7 +24,7 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary/20 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 pt-16 sm:pt-32 pb-12 sm:pb-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-12 sm:pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}

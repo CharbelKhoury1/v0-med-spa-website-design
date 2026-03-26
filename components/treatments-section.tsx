@@ -108,14 +108,14 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
   const displayedTreatments = isFull ? filteredTreatments : treatments.slice(0, 3)
 
   return (
-    <section id="treatments" className={cn("py-10 md:py-24 bg-secondary/30", !isFull && "border-b")}>
+    <section id="treatments" className={cn("py-10 md:py-20 bg-secondary/30", !isFull && "border-b")}>
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 md:mb-16"
+          className="text-center mb-8 md:mb-12"
         >
           <span className="text-accent font-bold uppercase tracking-[0.2em] text-xs mb-4 block">
             Our Expertise
@@ -160,7 +160,7 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
         )}
 
         {/* Treatments Grid */}
-        <div className="flex items-stretch overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 pb-8 sm:pb-0 snap-x snap-mandatory scrollbar-hide touch-pan-x">
+        <div className="flex items-stretch overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 pb-8 sm:pb-0 snap-x snap-mandatory scrollbar-hide">
           <AnimatePresence mode="popLayout">
             {displayedTreatments.map((treatment, index) => (
               <motion.div
@@ -197,7 +197,7 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
                 
                 <div className="p-6 flex flex-col flex-1 z-10">
                   <div className="flex flex-col mb-4 pointer-events-none gap-1">
-                    <h3 className="font-serif text-xl font-semibold text-foreground leading-tight">
+                    <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground leading-tight">
                       {treatment.name}
                     </h3>
                     <span className="text-sm font-bold text-primary uppercase tracking-wider opacity-80">

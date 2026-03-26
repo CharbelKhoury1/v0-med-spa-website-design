@@ -3,9 +3,10 @@
 export function StructuredData() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "Verdun Clinic by Dr. Maya Adhami",
-    "image": "https://verdunclinic.com/hero-image.png", // Use clinic URL if available
+    "@type": "Physician",
+    "name": "Dr. Maya Adhami",
+    "medicalSpecialty": "ENT, Facial Plastic Surgery",
+    "image": "https://verdunclinic.com/dr-maya-adhami.png",
     "@id": "https://verdunclinic.com",
     "url": "https://verdunclinic.com",
     "telephone": "+96171230515",
@@ -13,13 +14,29 @@ export function StructuredData() {
       "@type": "PostalAddress",
       "streetAddress": "Rue 26, Tallet El Khayyat, Verdun",
       "addressLocality": "Beirut",
+      "addressRegion": "Beirut Governorate",
+      "postalCode": "1103",
       "addressCountry": "LB"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 33.8869,
-      "longitude": 35.4851
+      "latitude": 33.883537,
+      "longitude": 35.482084
     },
+    "parentOrganization": {
+      "@type": "MedicalBusiness",
+      "name": "Verdun Clinic",
+      "url": "https://verdunclinic.com"
+    },
+    "knowsAbout": [
+      "Rhinoplasty",
+      "Facial Plastic Surgery",
+      "ENT Medical Services",
+      "Botox",
+      "Dermal Fillers",
+      "Sculptra",
+      "Light Eyes Ultra"
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -30,28 +47,14 @@ export function StructuredData() {
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": "Saturday",
-        "opens": "09:00",
+        "opens": "10:00",
         "closes": "14:00"
       }
     ],
-    "department": [
-      { "@type": "MedicalSpecialty", "name": "Facial Esthetics" },
-      { "@type": "MedicalSpecialty", "name": "Facial Plastic Surgery" },
-      { "@type": "MedicalSpecialty", "name": "Dermatology" },
-      { "@type": "MedicalSpecialty", "name": "ENT" },
-      { "@type": "MedicalSpecialty", "name": "Cardiology" }
-    ],
-    "employee": {
-      "@type": "Physician",
-      "name": "Dr. Maya Adhami",
-      "medicalSpecialty": "Otolaryngology, Facial Plastic Surgery",
-      "alumniOf": [
-        "American University of Beirut",
-        "University of Balamand",
-        "University of Paris Descartes"
-      ],
-      "memberOf": "European Academy of Facial Plastic Surgery"
-    }
+    "sameAs": [
+      "https://www.instagram.com/drmayaadhami/",
+      "https://www.facebook.com/drmayaadhami"
+    ]
   }
 
   return (
