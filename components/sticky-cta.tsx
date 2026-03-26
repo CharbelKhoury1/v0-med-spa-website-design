@@ -38,25 +38,22 @@ export function StickyCTA({ onBookClick }: StickyCTAProps) {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:hidden pointer-events-none"
+          className="fixed bottom-0 left-0 right-0 z-[60] md:hidden pointer-events-none"
         >
-          <div className="bg-background/90 backdrop-blur-xl border border-primary/20 rounded-2xl p-3 shadow-2xl flex items-center justify-between gap-3 overflow-hidden pointer-events-auto">
-            <div className="flex-1 min-w-0 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 animate-pulse">
-                <SparklesIcon className="w-5 h-5 text-primary" />
-              </div>
-              <div className="min-w-0">
-                <p className="font-semibold text-foreground text-sm truncate leading-tight">Expert Consultation</p>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Verdun Clinic • Beirut</p>
-              </div>
+          <div className="bg-background/95 backdrop-blur-2xl border-t border-primary/20 p-4 pb-6 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] flex items-center justify-between gap-4 pointer-events-auto">
+            <div className="min-w-0">
+              <p className="font-bold text-foreground text-base tracking-tight leading-none mb-1">Expert Consultation</p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-extrabold flex items-center gap-1.5 overflow-hidden whitespace-nowrap">
+                <span className="w-1 h-1 rounded-full bg-primary animate-pulse flex-shrink-0" />
+                Available Today
+              </p>
             </div>
             
             <Button
               onClick={onBookClick}
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 rounded-xl text-sm font-bold shadow-lg shadow-primary/25 h-12 flex items-center gap-2"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 rounded-full text-sm font-bold shadow-lg shadow-primary/25 h-12 flex items-center gap-2 flex-shrink-0"
             >
-              <Calendar className="w-4 h-4" />
               BOOK NOW
             </Button>
           </div>

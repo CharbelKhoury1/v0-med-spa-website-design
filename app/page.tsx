@@ -68,10 +68,8 @@ export default function HomePage() {
       <LocationSection onBookClick={handleBookClick} />
       <NewsletterSection />
       <Footer onBookClick={handleBookClick} />
-      <PromoBanner onBookClick={handleBookClick} />
       <StickyCTA onBookClick={handleBookClick} />
       <WhatsAppButton />
-      <ScrollToTop />
     </main>
   )
 }
