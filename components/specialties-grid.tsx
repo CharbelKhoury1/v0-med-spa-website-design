@@ -48,9 +48,13 @@ export function SpecialtiesGrid() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="flex overflow-x-auto sm:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 pb-4 sm:pb-0 snap-x snap-mandatory scrollbar-hide">
           {specialties.map((item, index) => (
-            <Link key={item.title} href="/treatments" className="block outline-none">
+            <Link 
+              key={item.title} 
+              href="/treatments" 
+              className="block outline-none flex-shrink-0 w-[280px] sm:w-auto snap-center"
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

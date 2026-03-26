@@ -89,12 +89,16 @@ const treatments = [
   },
 ]
 
+import { useRouter } from "next/navigation"
+import Image from "next/image"
+
 interface TreatmentsSectionProps {
-  onBookClick: () => void
+  onBookClick?: () => void
   isFull?: boolean
 }
 
 export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSectionProps) {
+  const router = useRouter()
   const [activeCategory, setActiveCategory] = useState("all")
 
   const filteredTreatments = treatments.filter(
@@ -156,7 +160,7 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
         )}
 
         {/* Treatments Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 pb-8 sm:pb-0 snap-x snap-mandatory scrollbar-hide">
           <AnimatePresence mode="popLayout">
             {displayedTreatments.map((treatment, index) => (
               <motion.div
@@ -166,16 +170,18 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-base hover:shadow-2xl transition-all duration-500 border border-black/5 flex flex-col h-full"
+                className="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-base hover:shadow-2xl transition-all duration-500 border border-black/5 flex flex-col h-full flex-shrink-0 w-[300px] sm:w-auto snap-center"
               >
                 {/* Main clickable area */}
                 <Link href={`/treatments/${treatment.slug}`} className="absolute inset-0 z-0" aria-label={`View ${treatment.name} details`} />
                 
                 <div className="relative aspect-[3/2] overflow-hidden z-10 pointer-events-none">
-                  <img
+                  <Image
                     src={treatment.image}
                     alt={treatment.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   {treatment.popular && (
                     <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium flex items-center gap-1">
@@ -215,7 +221,8 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        onBookClick();
+                        if (onBookClick) onBookClick();
+                        else router.push("/book");
                       }}
                       className="relative z-20 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-4 h-9"
                     >
@@ -226,6 +233,13 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
               </motion.div>
             ))}
           </AnimatePresence>
+        </div>
+
+        {/* Swipe Hint (Mobile Only) */}
+        <div className="sm:hidden flex items-center justify-center gap-4 py-4 text-muted-foreground/40 font-medium text-xs tracking-widest uppercase animate-pulse">
+           <div className="h-[1px] w-8 bg-current" />
+           swipe to explore
+           <div className="h-[1px] w-8 bg-current" />
         </div>
 
         {!isFull && (

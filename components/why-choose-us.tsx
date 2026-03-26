@@ -83,7 +83,7 @@ export function WhyChooseUsSection() {
             </div>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 gap-6 pb-6 sm:pb-0 snap-x snap-mandatory scrollbar-hide">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -91,7 +91,7 @@ export function WhyChooseUsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group p-6 bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                className="group p-6 bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 flex-shrink-0 w-[260px] sm:w-auto snap-center"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <feature.icon className="w-6 h-6 text-primary" />

@@ -5,11 +5,14 @@ import Link from "next/link"
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+import { useRouter } from "next/navigation"
+
 interface FooterProps {
-  onBookClick: () => void
+  onBookClick?: () => void
 }
 
 export function Footer({ onBookClick }: FooterProps) {
+  const router = useRouter()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -28,7 +31,7 @@ export function Footer({ onBookClick }: FooterProps) {
             Book a consultation with Dr. Maya Adhami to start your personal journey to a more confident you.
           </p>
           <Button
-            onClick={onBookClick}
+            onClick={onBookClick || (() => router.push("/book"))}
             size="lg"
             className="bg-background text-foreground hover:bg-background/90 px-10 py-6 text-lg rounded-full shadow-lg"
             suppressHydrationWarning

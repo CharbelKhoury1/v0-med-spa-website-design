@@ -227,6 +227,8 @@ const treatmentData: Record<string, any> = {
   },
 }
 
+import Image from "next/image"
+
 export default function TreatmentDetailsPage() {
   const params = useParams()
   const router = useRouter()
@@ -255,10 +257,13 @@ export default function TreatmentDetailsPage() {
 
       <main className="pt-24">
         <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
-          <img
+          <Image
             src={treatment.image}
             alt={treatment.name}
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 

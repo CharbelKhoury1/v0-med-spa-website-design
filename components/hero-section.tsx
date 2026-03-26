@@ -7,11 +7,15 @@ import { Magnetic } from "@/components/nano-banana/magnetic"
 import { Jelly } from "@/components/nano-banana/jelly"
 import { Counter } from "@/components/nano-banana/counter"
 
+import { useRouter } from "next/navigation"
+import Image from "next/image"
+
 interface HeroSectionProps {
-  onBookClick: () => void
+  onBookClick?: () => void
 }
 
 export function HeroSection({ onBookClick }: HeroSectionProps) {
+  const router = useRouter()
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
       {/* Dynamic Background Mesh */}
@@ -49,7 +53,7 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
               <Magnetic strength={0.3}>
                 <Button 
                   size="lg" 
-                  onClick={onBookClick}
+                  onClick={onBookClick || (() => router.push("/book"))}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-10 h-16 rounded-full shadow-2xl transition-all duration-300 font-bold group"
                   suppressHydrationWarning
                 >
@@ -101,10 +105,13 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
             className="relative"
           >
             <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border border-black/5 bg-secondary/20">
-              <img
+              <Image
                 src="/dr-maya-adhami.png"
                 alt="Dr. Maya Adhami - ENT & Facial Plastic Surgeon"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
             </div>
