@@ -82,7 +82,7 @@ export function LocationSection({ onBookClick }: LocationSectionProps) {
               </div>
 
               <Button
-                onClick={() => window.open('https://maps.google.com?q=Rue+26+Tallet+El+Khayyat+Verdun+Beirut', '_blank')}
+                onClick={() => window.open('https://maps.app.goo.gl/K7WDRa3uiRtzS516A', '_blank')}
                 className="w-full sm:w-auto px-8 py-6 rounded-full text-lg font-bold"
               >
                 Get Directions

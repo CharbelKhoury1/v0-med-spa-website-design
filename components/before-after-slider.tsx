@@ -9,6 +9,8 @@ interface BeforeAfterSliderProps {
   afterImage: string
   beforeLabel?: string
   afterLabel?: string
+  isDualImage?: boolean
+  className?: string
 }
 
 export function BeforeAfterSlider({
@@ -16,6 +18,8 @@ export function BeforeAfterSlider({
   afterImage,
   beforeLabel = "Before",
   afterLabel = "After",
+  isDualImage = false,
+  className,
 }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
@@ -51,7 +55,10 @@ export function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className="relative aspect-[4/5] rounded-2xl overflow-hidden cursor-ew-resize select-none"
+      className={cn(
+        "relative aspect-[4/5] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-black/5",
+        className
+      )}
       onMouseMove={handleMouseMove}
       onMouseDown={() => setIsDragging(true)}
       onMouseUp={() => setIsDragging(false)}
@@ -61,12 +68,17 @@ export function BeforeAfterSlider({
       onTouchMove={handleTouchMove}
     >
       {/* After image (background) */}
-      <img
-        src={afterImage}
-        alt={afterLabel}
-        className="absolute inset-0 w-full h-full object-cover"
-        draggable={false}
-      />
+      <div className="absolute inset-0">
+        <img
+          src={afterImage}
+          alt={afterLabel}
+          className={cn(
+            "absolute inset-0 w-full h-full object-cover",
+            isDualImage && "scale-[250%] translate-x-[-20%]"
+          )}
+          draggable={false}
+        />
+      </div>
 
       {/* Before image (clipped) */}
       <div
@@ -76,7 +88,10 @@ export function BeforeAfterSlider({
         <img
           src={beforeImage}
           alt={beforeLabel}
-          className="absolute inset-0 w-full h-full object-cover"
+          className={cn(
+            "absolute inset-0 w-full h-full object-cover",
+            isDualImage && "scale-[250%] translate-x-[20%]"
+          )}
           draggable={false}
         />
       </div>
@@ -113,24 +128,24 @@ export function BeforeAfterSlider({
 const results = [
   {
     id: 1,
-    treatment: "Rhinoplasty Reconstruction",
-    beforeImage: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&h=625&fit=crop&sat=-100",
-    afterImage: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&h=625&fit=crop",
-    description: "Functional and aesthetic refinement for facial harmony",
+    treatment: "Surgical Rhinoplasty",
+    beforeImage: "/results/rhino-before.png",
+    afterImage: "/results/rhino-after.png",
+    description: "Functional and aesthetic refinement for facial harmony and balance.",
   },
   {
     id: 2,
-    treatment: "Sculptra & Filler Rejuvenation",
-    beforeImage: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=625&fit=crop&sat=-100",
-    afterImage: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=625&fit=crop",
-    description: "Volume restoration and collagen stimulation on the midface",
+    treatment: "Parisian Lip Enhancement",
+    beforeImage: "/results/fillers-before.png",
+    afterImage: "/results/fillers-after.png",
+    description: "Subtle volume restoration and contouring for natural-looking fullness.",
   },
   {
     id: 3,
-    treatment: "Light Eyes Mesotherapy",
-    beforeImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=625&fit=crop&sat=-100",
-    afterImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=625&fit=crop",
-    description: "Dramatic reduction in dark circles and fine lines",
+    treatment: "Jawline Contouring",
+    beforeImage: "/results/jawline-before.png",
+    afterImage: "/results/jawline-after.png",
+    description: "Dramatic definition and tightening of the jawline and lower face.",
   },
 ]
 

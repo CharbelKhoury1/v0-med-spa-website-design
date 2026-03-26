@@ -41,14 +41,50 @@ export default function BookingPage() {
     notes: "",
   })
   const [mounted, setMounted] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     setMounted(true)
     window.scrollTo(0, 0)
   }, [])
 
+  const buildDemoRequest = () => {
+    const service = services.find((s) => s.id === selectedService)?.name ?? "Not selected"
+    const provider =
+      selectedProvider === "any"
+        ? "First Available"
+        : providers.find((p) => p.id === selectedProvider)?.name ?? "Not selected"
+
+    return {
+      prototype: true,
+      createdAt: new Date().toISOString(),
+      serviceId: selectedService,
+      serviceName: service,
+      providerId: selectedProvider,
+      providerName: provider,
+      dateISO: selectedDate ? selectedDate.toISOString() : null,
+      dateDisplay: selectedDate
+        ? selectedDate.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+        : null,
+      time: selectedTime,
+      patient: {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+      },
+      notes: formData.notes,
+    }
+  }
+
   const handleSubmit = () => {
-    // Simulate booking submission
+    // Prototype-only: no network calls, no real booking created.
+    try {
+      const payload = buildDemoRequest()
+      sessionStorage.setItem("verdunclinic_prototype_booking_request", JSON.stringify(payload))
+    } catch {
+      // ignore storage failures in prototype
+    }
     setStep(5)
     window.scrollTo(0, 0)
   }
@@ -93,13 +129,18 @@ export default function BookingPage() {
               >
                 <Heart className="w-8 h-8 text-primary" />
               </motion.div>
+              <div className="flex items-center justify-center mb-4">
+                <span className="inline-flex items-center rounded-full bg-accent/15 text-accent px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] border border-accent/20">
+                  Prototype Preview
+                </span>
+              </div>
               <h1 className="font-serif text-4xl font-semibold text-foreground mb-4">
                 {step === 5 ? "Booking Confirmed" : "Book Your Appointment"}
               </h1>
               <p className="text-muted-foreground text-lg">
                 {step === 5 
-                  ? "We can't wait to see you! Check your email for full details." 
-                  : "Experience world-class aesthetic care at Verdun Clinic."}
+                  ? "Request received in demo mode. No real appointment has been created."
+                  : "Experience a realistic booking flow — demo only (front-end prototype)."}
               </p>
             </div>
 
@@ -354,6 +395,14 @@ export default function BookingPage() {
                           <h2 className="text-xl font-semibold text-foreground">Your Information</h2>
                         </div>
 
+                        <div className="rounded-2xl border border-border bg-muted/40 px-5 py-4">
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            This is a <span className="font-semibold text-foreground">front-end prototype</span>. Submitting will
+                            show a confirmation screen for review — it will <span className="font-semibold text-foreground">not</span>{" "}
+                            contact the clinic or create a real appointment.
+                          </p>
+                        </div>
+
                         <div className="grid sm:grid-cols-2 gap-4">
                           <div className="space-y-1.5">
                             <label className="text-sm font-medium text-foreground ml-1">First Name</label>
@@ -415,7 +464,7 @@ export default function BookingPage() {
                           onClick={handleSubmit}
                           className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 rounded-2xl text-lg mt-4 shadow-lg shadow-primary/20"
                         >
-                          Confirm Appointment
+                          Submit Request (Demo)
                         </Button>
                       </motion.div>
                     )}
@@ -431,9 +480,10 @@ export default function BookingPage() {
                         <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8">
                           <Check className="w-12 h-12 text-primary" />
                         </div>
-                        <h2 className="font-serif text-3xl font-semibold mb-3">Appointment Requested!</h2>
-                        <p className="text-muted-foreground mb-10 max-w-sm mx-auto">
-                          Thank you for choosing Verdun Clinic. A confirmation has been sent to <span className="text-foreground font-medium">{formData.email}</span>.
+                        <h2 className="font-serif text-3xl font-semibold mb-3">Request Received (Prototype)</h2>
+                        <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+                          This is a demo confirmation screen for the clinic to review the experience.
+                          No email, SMS, or calendar booking was sent.
                         </p>
                         
                         <div className="bg-muted/50 rounded-3xl p-8 text-left border border-border mb-10">
@@ -457,6 +507,45 @@ export default function BookingPage() {
                               <p className="font-semibold">{selectedProvider === "any" ? "First Available" : providers.find(p => p.id === selectedProvider)?.name}</p>
                             </div>
                           </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+                          <Button
+                            variant="outline"
+                            className="rounded-full px-8 h-12"
+                            onClick={async () => {
+                              try {
+                                const payload = JSON.stringify(buildDemoRequest(), null, 2)
+                                await navigator.clipboard.writeText(payload)
+                                setCopied(true)
+                                window.setTimeout(() => setCopied(false), 1500)
+                              } catch {
+                                // ignore clipboard failures in prototype
+                              }
+                            }}
+                          >
+                            {copied ? "Copied!" : "Copy Request Summary"}
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="rounded-full px-8 h-12"
+                            onClick={() => {
+                              try {
+                                const payload = JSON.stringify(buildDemoRequest(), null, 2)
+                                const blob = new Blob([payload], { type: "application/json" })
+                                const url = URL.createObjectURL(blob)
+                                const a = document.createElement("a")
+                                a.href = url
+                                a.download = "verdun-clinic-prototype-request.json"
+                                a.click()
+                                URL.revokeObjectURL(url)
+                              } catch {
+                                // ignore download failures in prototype
+                              }
+                            }}
+                          >
+                            Download JSON
+                          </Button>
                         </div>
 
                         <Link href="/">
@@ -510,9 +599,9 @@ export default function BookingPage() {
                       </div>
 
                       <div className="pt-2">
-                         <p className="text-xs text-muted-foreground leading-relaxed italic">
-                           Price and duration will be confirmed during consultation.
-                         </p>
+                        <p className="text-xs text-muted-foreground leading-relaxed italic">
+                          Demo only — no real booking will be created. Price and duration will be confirmed during consultation.
+                        </p>
                       </div>
                     </div>
                   </div>

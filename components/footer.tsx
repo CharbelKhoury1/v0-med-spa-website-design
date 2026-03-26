@@ -22,19 +22,18 @@ export function Footer({ onBookClick }: FooterProps) {
       <div className="bg-primary">
         <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 text-center">
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-primary-foreground mb-4">
-            Ready to Begin Your Transformation?
+            Ready to Look and Feel Your Best?
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
-            Schedule a consultation with Dr. Maya Adhami and discover your 
-            personalized surgical or aesthetic treatment plan.
+            Book a consultation with Dr. Maya Adhami to start your personal journey to a more confident you.
           </p>
           <Button
             onClick={onBookClick}
             size="lg"
-            className="bg-background text-foreground hover:bg-background/90 px-10 py-6 text-lg rounded-full"
+            className="bg-background text-foreground hover:bg-background/90 px-10 py-6 text-lg rounded-full shadow-lg"
             suppressHydrationWarning
           >
-            Book Your Free Consultation
+            Book Your Visit
           </Button>
         </div>
       </div>
@@ -52,20 +51,24 @@ export function Footer({ onBookClick }: FooterProps) {
               </span>
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Elite ENT and Facial Plastic Surgery clinic in the heart of Beirut. 
-              Combining surgical precision with an artistic touch for results that 
-              look and feel authentically you.
+              Expert care for your face and health in the heart of Beirut. 
+              We combine medical skill with an eye for beauty for results 
+              that look and feel authentically you.
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/drmayaadhami/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/drmayaadhami"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
@@ -79,19 +82,18 @@ export function Footer({ onBookClick }: FooterProps) {
             <h3 className="font-semibold text-background mb-6">Quick Links</h3>
             <ul className="space-y-3">
               {[
-                { href: "#treatments", label: "Treatments" },
-                { href: "#results", label: "Before & After" },
-                { href: "#providers", label: "Our Team" },
-                { href: "#testimonials", label: "Reviews" },
-                { href: "#", label: "Specials & Offers" },
+                { href: "/about", label: "About Dr. Maya" },
+                { href: "/treatments", label: "Treatments" },
+                { href: "/results", label: "Before & After" },
+                { href: "/contact", label: "Contact & FAQ" },
               ].map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-background/70 hover:text-background transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,12 +112,12 @@ export function Footer({ onBookClick }: FooterProps) {
                 "ENT Medical",
               ].map((treatment) => (
                 <li key={treatment}>
-                  <a
-                    href="#treatments"
+                  <Link
+                    href="/treatments"
                     className="text-background/70 hover:text-background transition-colors text-sm"
                   >
                     {treatment}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -127,11 +129,16 @@ export function Footer({ onBookClick }: FooterProps) {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-background/70 text-sm">
+                <a 
+                  href="https://maps.app.goo.gl/K7WDRa3uiRtzS516A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/70 hover:text-background transition-colors text-sm"
+                >
                   Rue 26, Tallet El Khayyat<br />
                   Verdun, Beirut<br />
                   Lebanon
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary" />
@@ -169,12 +176,12 @@ export function Footer({ onBookClick }: FooterProps) {
             &copy; {mounted ? new Date().getFullYear() : "2026"} Verdun Clinic by Dr. Maya Adhami. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-background/50 hover:text-background text-sm transition-colors">
+            <Link href="/privacy-policy" className="text-background/50 hover:text-background text-sm transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-background/50 hover:text-background text-sm transition-colors">
+            </Link>
+            <Link href="/terms-of-service" className="text-background/50 hover:text-background text-sm transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

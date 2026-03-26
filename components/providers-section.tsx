@@ -9,7 +9,7 @@ const providers = [
     name: "Dr. Maya Adhami",
     title: "ENT & Facial Plastic Surgeon",
     specialty: "Rhinoplasty & Facial Medical Aesthetics",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop",
+    image: "/dr-maya-adhami.png",
     credentials: [
       "ENT & Head and Neck Surgery (Saint George)",
       "Fellowship: Rhinology & Facial Plastic Surgery (Paris)",

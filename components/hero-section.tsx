@@ -37,12 +37,12 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
             </div>
             
             <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl font-extrabold text-foreground leading-[1.1] mb-6 sm:mb-8">
-              Verdun Clinic <br />
-              <span className="text-primary italic font-light drop-shadow-sm">by Dr. Maya Adhami</span>
+              The Art of <br />
+              <span className="text-primary italic font-light drop-shadow-sm">Natural Refinement</span>
             </h1>
             
             <p className="text-muted-foreground text-base sm:text-lg md:text-2xl max-w-xl mb-8 sm:mb-10 leading-relaxed font-medium mx-auto lg:mx-0">
-              Expert ENT and Facial Plastic Surgeon. Specializing in high-end facial medical aesthetics, surgical precision, and restorative beauty in Beirut.
+              Expert care for your face and health. Led by Dr. Maya Adhami, we specialize in precise surgical and aesthetic treatments that help you look and feel your best.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start">
@@ -61,6 +61,17 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
                 variant="outline" 
                 size="lg" 
                 className="border-2 border-primary/20 hover:border-primary text-foreground text-lg px-10 h-16 rounded-full font-bold group"
+                onClick={() => {
+                  const element = document.getElementById('specialties')
+                  if (element) {
+                    const offset = 80
+                    const elementPosition = element.getBoundingClientRect().top + window.scrollY
+                    window.scrollTo({
+                      top: elementPosition - offset,
+                      behavior: "smooth"
+                    })
+                  }
+                }}
               >
                 View Specialties
               </Button>
@@ -89,13 +100,13 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
             transition={{ duration: 1, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border border-black/5">
+            <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border border-black/5 bg-secondary/20">
               <img
-                src="/hero_radiant_beauty_1774474166576.png"
-                alt="Dr. Maya Adhami - Radiant Beauty"
+                src="/dr-maya-adhami.png"
+                alt="Dr. Maya Adhami - ENT & Facial Plastic Surgeon"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
             </div>
 
             {/* Floating Review Card */}

@@ -6,33 +6,33 @@ import { Shield, Award, Heart, Sparkles, Users, Clock } from "lucide-react"
 const features = [
   {
     icon: Shield,
-    title: "Paris-Trained Surgeon",
-    description: "Dr. Maya Adhami holds fellowships from the University of Paris Descartes in Rhinology & Facial Plastic Surgery.",
+    title: "Trained in Paris",
+    description: "Dr. Maya Adhami’s expert training in Paris ensures the highest standards of care and precision.",
   },
   {
     icon: Award,
-    title: "Forbes-Recognized Pioneer",
-    description: "Featured in FORBES Middle East Healthcare as a pioneer in facial medical aesthetics in the region.",
+    title: "Award-Winning Care",
+    description: "Recognized by Forbes for leading the way in modern beauty and health care in the region.",
   },
   {
     icon: Heart,
-    title: "Personalized Care",
-    description: "Every treatment plan is tailored to your unique facial anatomy, goals, and lifestyle for naturally beautiful results.",
+    title: "Care Made for You",
+    description: "We build a treatment plan that fits your face, your goals, and your lifestyle.",
   },
   {
     icon: Sparkles,
-    title: "Premium Products Only",
-    description: "We use top-tier brands including Restylane, Juvederm, Sculptra, and Filorga for optimal, lasting outcomes.",
+    title: "The Safest Products",
+    description: "We only use the highest quality, world-leading brands for your treatments and safety.",
   },
   {
     icon: Users,
-    title: "92% Recommendation Rate",
-    description: "Our patients consistently recommend Verdun Clinic for its expertise, care, and transformative results.",
+    title: "Happy Patients",
+    description: "Our patients love their results and consistently recommend us to their friends and family.",
   },
   {
     icon: Clock,
-    title: "Convenient Beirut Location",
-    description: "Located in the prestigious Verdun district with easy access and flexible scheduling including Saturday consultations.",
+    title: "Easy to Reach",
+    description: "Find us in the heart of Verdun with flexible hours, including Saturday appointments.",
   },
 ]
 
@@ -54,12 +54,10 @@ export function WhyChooseUsSection() {
               Why Verdun Clinic
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-3 mb-5 md:mb-6">
-              The Difference is in the Details
+              Why You&apos;re in Good Hands
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              At Verdun Clinic, we believe that true beauty lies in surgical precision and natural harmony. 
-              Our commitment to excellence, combined with our warm and welcoming 
-              environment, sets us apart as the premier destination for aesthetic care.
+              Expert care shouldn&apos;t feel complicated. At Verdun Clinic, we combine world-class surgical skill with a personal touch to help you feel confident and cared for.
             </p>
             
             {/* Trust indicators */}

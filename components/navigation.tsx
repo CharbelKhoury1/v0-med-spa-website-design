@@ -9,11 +9,10 @@ import { Magnetic } from "@/components/nano-banana/magnetic"
 import { usePathname } from "next/navigation"
 
 const navLinks = [
+  { href: "/about", label: "About Dr. Maya", id: "about" },
   { href: "/treatments", label: "Treatments", id: "treatments" },
-  { href: "/#results", label: "Results", id: "results" },
-  { href: "/#providers", label: "Our Team", id: "providers" },
-  { href: "/#testimonials", label: "Reviews", id: "testimonials" },
-  { href: "/#location", label: "Location", id: "location" },
+  { href: "/results", label: "Before & After", id: "results" },
+  { href: "/contact", label: "Contact & FAQ", id: "contact" },
 ]
 
 interface NavigationProps {

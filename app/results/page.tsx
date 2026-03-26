@@ -2,10 +2,10 @@
 
 import { useRouter } from "next/navigation"
 import { Navigation } from "@/components/navigation"
-import { TreatmentsSection } from "@/components/treatments-section"
+import { ResultsSection } from "@/components/before-after-slider"
 import { Footer } from "@/components/footer"
 
-export default function TreatmentsPage() {
+export default function ResultsPage() {
   const router = useRouter()
   const handleBookClick = () => {
     router.push("/book")
@@ -15,7 +15,7 @@ export default function TreatmentsPage() {
     <main className="min-h-screen bg-background">
       <Navigation onBookClick={handleBookClick} />
       <div className="pt-20">
-        <TreatmentsSection onBookClick={handleBookClick} isFull={true} />
+        <ResultsSection />
       </div>
       <Footer onBookClick={handleBookClick} />
     </main>

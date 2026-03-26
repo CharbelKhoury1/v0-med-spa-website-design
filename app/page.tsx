@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { WhyChooseUsSection } from "@/components/why-choose-us"
@@ -20,6 +21,7 @@ import { StickyCTA } from "@/components/sticky-cta"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export default function HomePage() {
+  const router = useRouter()
   // Smooth scroll behavior
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
@@ -47,28 +49,18 @@ export default function HomePage() {
   }, [])
 
   const handleBookClick = () => {
-    const phoneNumber = "96171230515"
-    const message = encodeURIComponent("Hello! I'd like to book a consultation at Verdun Clinic with Dr. Maya Adhami.")
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')
+    router.push("/book")
   }
 
   return (
     <main className="min-h-screen scroll-smooth">
       <Navigation onBookClick={handleBookClick} />
       <HeroSection onBookClick={handleBookClick} />
-      <AboutDoctorSection />
       <SpecialtiesGrid />
-      <WhyChooseUsSection />
       <TreatmentsSection onBookClick={handleBookClick} />
-      <SpecialOffersSection onBookClick={handleBookClick} />
-      <ResultsSection />
-      <ProvidersSection />
       <TestimonialsSection />
-      <FAQSection onBookClick={handleBookClick} />
-      <LocationSection onBookClick={handleBookClick} />
-      <NewsletterSection />
+      <WhyChooseUsSection />
       <Footer onBookClick={handleBookClick} />
-      <StickyCTA onBookClick={handleBookClick} />
       <WhatsAppButton />
     </main>
   )

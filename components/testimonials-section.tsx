@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { ChevronLeft, ChevronRight, Quote, Star, Instagram, Facebook, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const testimonials = [
@@ -205,17 +205,45 @@ export function TestimonialsSection() {
         {/* Trust badges */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-10 md:mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-16 opacity-60"
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="mt-16 md:mt-24 border-t border-primary/10 pt-12 md:pt-16"
         >
-          {["Google", "Yelp", "RealSelf", "Facebook"].map((platform) => (
-            <div key={platform} className="text-center">
-              <p className="font-semibold text-foreground">{platform}</p>
-              <p className="text-sm text-muted-foreground">5.0 Rating</p>
-            </div>
-          ))}
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-24">
+            {[
+              { name: "Google", icon: Globe },
+              { name: "Instagram", icon: Instagram },
+              { name: "Facebook", icon: Facebook }
+            ].map((platform) => (
+              <motion.div 
+                key={platform.name} 
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="group relative flex flex-col items-center gap-2"
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <platform.icon className="w-5 h-5 text-primary/40 group-hover:text-primary transition-colors" />
+                  <div className="flex text-amber-400 group-hover:drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] transition-all">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <Star key={s} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                </div>
+                <p className="font-serif text-lg md:text-xl font-bold text-foreground/80 group-hover:text-primary transition-colors">
+                  {platform.name}
+                </p>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs font-black bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                    5.0
+                  </span>
+                  <span className="text-[10px] text-muted-foreground uppercase tracking-widest font-extrabold">VERIFIED</span>
+                </div>
+                
+                {/* Subtle glow on hover */}
+                <div className="absolute -inset-4 bg-primary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

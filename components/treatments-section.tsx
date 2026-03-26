@@ -20,66 +20,72 @@ const treatments = [
     slug: "rhinoplasty",
     name: "Rhinoplasty",
     category: "surgery",
-    description: "Core surgical specialty. Precision functional and aesthetic nose surgery to achieve harmony and balance.",
+    description: "Expert nose surgery to improve your breathing and give your face a natural, balanced look.",
     duration: "2-4 hours",
     price: "Consultation required",
-    image: "/treatment_injectables_precision_1774474316929.png",
+    image: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&q=80",
     popular: true,
+    hasRealResults: true,
   },
   {
     id: 2,
     slug: "sculptra-collagen",
     name: "Sculptra & Fillers",
     category: "aesthetics",
-    description: "Advanced collagen stimulation and volume restoration for natural-looking facial contouring.",
+    description: "Restore your skin's natural volume and glow with advanced collagen-boosting treatments.",
     duration: "45 min",
     price: "From $350",
-    image: "/treatment_hydrafacial_luxury_1774474233173.png",
+    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
     popular: true,
+    hasRealResults: true,
   },
   {
     id: 3,
     slug: "light-eyes-ultra",
     name: "Light Eyes Ultra",
     category: "aesthetics",
-    description: "Specialized mesotherapy for dark circles, puffiness, and fine wrinkles around the delicate eye area.",
+    description: "Refresh your eyes. Our treatment targets dark circles, puffiness, and fine lines for a brighter look.",
     duration: "30 min",
     price: "From $200",
-    image: "/treatment_laser_advanced_1774474553265.png",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
     popular: true,
+    hasRealResults: false,
   },
   {
     id: 4,
     slug: "ent-consultation",
     name: "ENT Medical Services",
     category: "ent",
-    description: "Expert Ear, Nose, and Throat consultations and specialized medical procedures by Dr. Maya Adhami.",
+    description: "Professional medical care for your ear, nose, and throat health, led by Dr. Maya Adhami.",
     duration: "30 min",
     price: "Consultation required",
-    image: "/placeholder.jpg",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
     popular: false,
+    hasRealResults: false,
   },
   {
     id: 5,
     slug: "botox-dysport",
     name: "Botox & Dysport",
     category: "aesthetics",
-    description: "Precision wrinkle relaxation and eyebrow lift for a refreshed, natural appearance using world-leading neuromodulators.",
+    description: "Softens wrinkles and lifts your brows for a naturally refreshed and younger look.",
     duration: "30 min",
     price: "From $250",
-    image: "/treatment_injectables_precision_1774474316929.png",
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80",
     popular: true,
+    hasRealResults: false,
   },
   {
     id: 6,
     slug: "dermal-fillers",
     name: "Dermal Fillers",
     category: "aesthetics",
-    description: "Volume restoration with Restylane, Juvederm, and Filorga. Natural contouring for lips, cheeks, jawline, and more.",
+    description: "Gently add volume and shape to your lips, cheeks, or jawline for a natural, refined finish.",
     duration: "45 min",
     price: "From $400",
-    image: "/treatment_hydrafacial_luxury_1774474233173.png",
+    image: "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=800&q=80",
     popular: true,
+    hasRealResults: true,
   },
 ]
 
@@ -111,12 +117,12 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
             Our Expertise
           </span>
           <h2 className="font-serif text-4xl md:text-6xl font-semibold text-foreground mb-6">
-             Treatment <span className="text-accent italic">Menu</span>
+             Our <span className="text-accent italic">Services</span>
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             {isFull 
-              ? "Discover our complete menu of advanced aesthetic treatments, each tailored to reveal your most radiant self."
-              : "Discover a glimpse of our curated selection of advanced aesthetic treatments."
+              ? "Discover our complete range of treatments, each tailored to reveal your most radiant, healthy self."
+              : "A glimpse into our curated selection of aesthetic and medical treatments."
             }
           </p>
         </motion.div>
@@ -160,9 +166,12 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group bg-white rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-black/5"
+                className="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-base hover:shadow-2xl transition-all duration-500 border border-black/5 flex flex-col h-full"
               >
-                <div className="relative aspect-[3/2] overflow-hidden">
+                {/* Main clickable area */}
+                <Link href={`/treatments/${treatment.slug}`} className="absolute inset-0 z-0" aria-label={`View ${treatment.name} details`} />
+                
+                <div className="relative aspect-[3/2] overflow-hidden z-10 pointer-events-none">
                   <img
                     src={treatment.image}
                     alt={treatment.name}
@@ -174,10 +183,15 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
                       Popular
                     </div>
                   )}
+                  {treatment.hasRealResults && (
+                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-foreground/85 text-background text-xs font-semibold tracking-wide backdrop-blur-sm">
+                      Real Results
+                    </div>
+                  )}
                 </div>
                 
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
+                <div className="p-6 flex flex-col flex-1 z-10">
+                  <div className="flex items-center justify-between mb-3 pointer-events-none">
                     <h3 className="font-serif text-xl font-semibold text-foreground">
                       {treatment.name}
                     </h3>
@@ -186,23 +200,24 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
                     </span>
                   </div>
                   
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                  <p className="text-muted-foreground text-sm mb-6 line-clamp-2 pointer-events-none">
                     {treatment.description}
                   </p>
                   
                   <div className="flex items-center justify-between mt-auto">
-                    <Link
-                      href={`/treatments/${treatment.slug}`}
-                      className="text-sm font-medium text-primary hover:underline flex items-center gap-1 group/learn"
-                    >
+                    <div className="text-sm font-medium text-primary hover:underline flex items-center gap-1 group/learn pointer-events-none">
                       Learn More
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/learn:translate-x-0.5" />
-                    </Link>
+                    </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={onBookClick}
-                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-4 h-9"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        onBookClick();
+                      }}
+                      className="relative z-20 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-4 h-9"
                     >
                       Book
                     </Button>

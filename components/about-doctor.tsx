@@ -26,7 +26,7 @@ export function AboutDoctorSection() {
           >
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/providers-section.png" // Using the provider image path
+                src="/dr-maya-adhami.png"
                 alt="Dr. Maya Adhami"
                 fill
                 className="object-cover"
