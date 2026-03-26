@@ -43,7 +43,7 @@ export function ProvidersSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 max-w-md mx-auto">
           {providers.map((provider, index) => (
             <motion.div
               key={provider.id}

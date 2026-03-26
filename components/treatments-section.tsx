@@ -136,7 +136,7 @@ export function TreatmentsSection({ onBookClick, isFull = false }: TreatmentsSec
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                   className={cn(
-                    "flex-shrink-0 px-8 py-3 rounded-full text-sm font-semibold transition-all duration-300",
+                    "flex-shrink-0 px-5 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300",
                     activeCategory === cat.id
                       ? "bg-foreground text-background shadow-xl scale-105"
                       : "bg-background text-muted-foreground hover:bg-muted"

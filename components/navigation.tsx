@@ -144,7 +144,7 @@ export function Navigation({ onBookClick }: NavigationProps) {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "lg:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md shadow-lg transition-all duration-300 overflow-hidden",
+          "lg:hidden absolute top-full left-2 right-2 mt-2 bg-background/98 backdrop-blur-xl shadow-2xl transition-all duration-300 overflow-hidden rounded-2xl border border-primary/10",
           isMobileMenuOpen ? "max-h-screen opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
@@ -165,15 +165,24 @@ export function Navigation({ onBookClick }: NavigationProps) {
               </Link>
             )
           })}
-          <Button
-            onClick={() => {
-              setIsMobileMenuOpen(false)
-              onBookClick()
-            }}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground mt-4 rounded-full"
-          >
-            Book Now
-          </Button>
+          <div className="flex flex-col gap-6 mt-6">
+            <a
+              href="tel:+96171230515"
+              className="flex items-center justify-center gap-3 text-lg font-bold text-foreground bg-secondary/50 py-4 rounded-xl border border-primary/10 transition-colors active:bg-secondary"
+            >
+              <Phone className="h-5 w-5 text-primary" />
+              +961 71 230 515
+            </a>
+            <Button
+              onClick={() => {
+                setIsMobileMenuOpen(false)
+                onBookClick()
+              }}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-lg rounded-xl shadow-xl shadow-primary/20"
+            >
+              Book Now
+            </Button>
+          </div>
         </nav>
       </div>
     </header>

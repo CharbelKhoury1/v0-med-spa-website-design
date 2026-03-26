@@ -13,7 +13,7 @@ export function AboutDoctorSection() {
   ]
 
   return (
-    <section id="about" className="py-20 md:py-32 overflow-hidden bg-background">
+    <section id="about" className="py-16 md:py-32 overflow-hidden bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Image & Badge */}
@@ -40,10 +40,10 @@ export function AboutDoctorSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-6 -right-6 md:-right-10 bg-white p-6 rounded-xl shadow-xl flex items-center gap-4 max-w-[240px] border border-primary/10"
+              className="absolute -bottom-4 right-4 sm:-bottom-6 sm:-right-6 md:-right-10 bg-white p-4 sm:p-6 rounded-xl shadow-xl flex items-center gap-3 sm:gap-4 max-w-[200px] sm:max-w-[240px] border border-primary/10"
             >
-              <div className="bg-primary/10 p-3 rounded-full">
-                < Award className="w-8 h-8 text-primary" />
+              <div className="bg-primary/10 p-2 sm:p-3 rounded-full">
+                <Award className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-primary">Featured in</p>
@@ -65,14 +65,14 @@ export function AboutDoctorSection() {
               Meet the Doctor
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-4 sm:mb-6 leading-tight">
               Dr. Maya Adhami
               <span className="block text-xl md:text-2xl font-sans font-normal text-muted-foreground mt-2">
                 ENT & Facial Plastic Surgeon
               </span>
             </h2>
 
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
               <p>
                 Dr. Maya Adhami is a pioneering medical professional in Beirut, uniquely combining the precision of ENT surgery with the artistic mastery of facial aesthetics.
               </p>

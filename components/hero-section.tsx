@@ -20,14 +20,15 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary/20 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-widest mb-6 mx-auto lg:mx-0">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -35,16 +36,16 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
               Featured in FORBES Middle East
             </div>
             
-            <h1 className="font-serif text-5xl md:text-7xl font-extrabold text-foreground leading-[1.1] mb-8">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl font-extrabold text-foreground leading-[1.1] mb-6 sm:mb-8">
               Verdun Clinic <br />
               <span className="text-primary italic font-light drop-shadow-sm">by Dr. Maya Adhami</span>
             </h1>
             
-            <p className="text-muted-foreground text-lg md:text-2xl max-w-xl mb-10 leading-relaxed font-medium">
+            <p className="text-muted-foreground text-base sm:text-lg md:text-2xl max-w-xl mb-8 sm:mb-10 leading-relaxed font-medium mx-auto lg:mx-0">
               Expert ENT and Facial Plastic Surgeon. Specializing in high-end facial medical aesthetics, surgical precision, and restorative beauty in Beirut.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start">
               <Magnetic strength={0.3}>
                 <Button 
                   size="lg" 
@@ -65,19 +66,18 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
               </Button>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-8">
+            <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-6 sm:gap-8 justify-center lg:justify-start">
                <div className="text-center">
-                  <p className="text-3xl font-bold text-foreground mb-1">
+                  <p className="text-2xl sm:text-3xl font-bold text-foreground mb-1">
                     <Counter to={15} suffix="+" duration={2} />
                   </p>
-                  <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Years Experience</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-widest font-bold">Years Experience</p>
                </div>
-               <div className="w-px h-10 bg-border hidden sm:block opacity-50" />
                <div className="text-center">
-                  <p className="text-3xl font-bold text-foreground mb-1">
+                  <p className="text-2xl sm:text-3xl font-bold text-foreground mb-1">
                     <Counter to={92} suffix="%" duration={2} />
                   </p>
-                  <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Recommendation</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-widest font-bold">Recommendation</p>
                </div>
             </div>
           </motion.div>
@@ -103,7 +103,7 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
               initial={{ opacity: 0, scale: 0.5, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="absolute -bottom-10 -left-10 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-black/5 max-w-[260px] z-20"
+              className="absolute -bottom-6 sm:-bottom-10 left-4 sm:-left-10 bg-white p-4 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-2xl border border-black/5 max-w-[220px] sm:max-w-[260px] z-20"
             >
               <div className="flex items-center gap-2 mb-3">
                  <div className="flex text-accent">

@@ -47,7 +47,7 @@ export function SpecialtiesGrid() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
           {specialties.map((item, index) => (
             <motion.div
               key={item.title}
