@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -9,22 +10,29 @@ interface FooterProps {
 }
 
 export function Footer({ onBookClick }: FooterProps) {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <footer id="contact" className="bg-foreground text-background">
       {/* CTA Section */}
       <div className="bg-primary">
-        <div className="container mx-auto px-6 py-16 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-primary-foreground mb-4">
+        <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-primary-foreground mb-4">
             Ready to Begin Your Transformation?
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
-            Schedule a complimentary consultation with one of our expert providers 
-            and discover your personalized treatment plan.
+            Schedule a consultation with Dr. Maya Adhami and discover your 
+            personalized surgical or aesthetic treatment plan.
           </p>
           <Button
             onClick={onBookClick}
             size="lg"
             className="bg-background text-foreground hover:bg-background/90 px-10 py-6 text-lg rounded-full"
+            suppressHydrationWarning
           >
             Book Your Free Consultation
           </Button>
@@ -32,22 +40,21 @@ export function Footer({ onBookClick }: FooterProps) {
       </div>
 
       {/* Main Footer */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
-              <span className="font-serif text-2xl font-semibold text-background">
-                Serene
+      <div className="container mx-auto px-4 sm:px-6 py-10 md:py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
+          <div className="max-w-sm">
+            <Link href="/" className="flex flex-col group -space-y-1 mb-6">
+              <span className="font-serif text-2xl font-extrabold tracking-tight text-background transition-transform group-hover:scale-105">
+                Verdun Clinic
               </span>
-              <span className="font-serif text-2xl font-light text-primary-foreground/60 ml-2">
-                Aesthetics
+              <span className="font-serif text-base font-light text-primary italic transition-all group-hover:text-accent">
+                by Dr. Maya Adhami
               </span>
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Where science meets artistry. We are dedicated to helping you 
-              look and feel your best through personalized aesthetic treatments 
-              delivered by experienced professionals.
+              Elite ENT and Facial Plastic Surgery clinic in the heart of Beirut. 
+              Combining surgical precision with an artistic touch for results that 
+              look and feel authentically you.
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -77,7 +84,6 @@ export function Footer({ onBookClick }: FooterProps) {
                 { href: "#providers", label: "Our Team" },
                 { href: "#testimonials", label: "Reviews" },
                 { href: "#", label: "Specials & Offers" },
-                { href: "#", label: "Gift Cards" },
               ].map((link) => (
                 <li key={link.label}>
                   <a
@@ -96,12 +102,12 @@ export function Footer({ onBookClick }: FooterProps) {
             <h3 className="font-semibold text-background mb-6">Popular Treatments</h3>
             <ul className="space-y-3">
               {[
-                "HydraFacial",
-                "Botox & Dysport",
+                "Rhinoplasty",
+                "Sculptra Rejuvenation",
+                "Light Eyes Ultra",
                 "Dermal Fillers",
-                "Laser Treatments",
-                "Chemical Peels",
-                "Body Contouring",
+                "Botox & Dysport",
+                "ENT Medical",
               ].map((treatment) => (
                 <li key={treatment}>
                   <a
@@ -120,36 +126,36 @@ export function Footer({ onBookClick }: FooterProps) {
             <h3 className="font-semibold text-background mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary-foreground/60 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-background/70 text-sm">
-                  123 Wellness Boulevard<br />
-                  Suite 400<br />
-                  Los Angeles, CA 90210
+                  Rue 26, Tallet El Khayyat<br />
+                  Verdun, Beirut<br />
+                  Lebanon
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary-foreground/60" />
+                <Phone className="w-5 h-5 text-primary" />
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+96171230515"
                   className="text-background/70 hover:text-background transition-colors text-sm"
                 >
-                  (555) 123-4567
+                  +961 71 230 515
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary-foreground/60" />
+                <Mail className="w-5 h-5 text-primary" />
                 <a
-                  href="mailto:hello@sereneaesthetics.com"
+                  href="mailto:verdunclinic@gmail.com"
                   className="text-background/70 hover:text-background transition-colors text-sm"
                 >
-                  hello@sereneaesthetics.com
+                  verdunclinic@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-primary-foreground/60 flex-shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-background/70 text-sm">
                   Mon - Fri: 9am - 6pm<br />
-                  Saturday: 10am - 4pm<br />
+                  Saturday: 10am - 2pm<br />
                   Sunday: Closed
                 </span>
               </li>
@@ -158,9 +164,9 @@ export function Footer({ onBookClick }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-background/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-background/10 mt-8 md:mt-12 pt-6 md:pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-background/50 text-sm">
-            &copy; {new Date().getFullYear()} Serene Aesthetics. All rights reserved.
+            &copy; {mounted ? new Date().getFullYear() : "2026"} Verdun Clinic by Dr. Maya Adhami. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-background/50 hover:text-background text-sm transition-colors">
@@ -168,9 +174,6 @@ export function Footer({ onBookClick }: FooterProps) {
             </a>
             <a href="#" className="text-background/50 hover:text-background text-sm transition-colors">
               Terms of Service
-            </a>
-            <a href="#" className="text-background/50 hover:text-background text-sm transition-colors">
-              Accessibility
             </a>
           </div>
         </div>

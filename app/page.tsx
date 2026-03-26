@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { WhyChooseUsSection } from "@/components/why-choose-us"
@@ -12,13 +12,14 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { LocationSection } from "@/components/location-section"
 import { NewsletterSection } from "@/components/newsletter-section"
-import { BookingModal } from "@/components/booking-modal"
 import { Footer } from "@/components/footer"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { AboutDoctorSection } from "@/components/about-doctor"
+import { SpecialtiesGrid } from "@/components/specialties-grid"
+import { StickyCTA } from "@/components/sticky-cta"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export default function HomePage() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false)
-
   // Smooth scroll behavior
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
@@ -46,13 +47,17 @@ export default function HomePage() {
   }, [])
 
   const handleBookClick = () => {
-    setIsBookingOpen(true)
+    const phoneNumber = "96171230515"
+    const message = encodeURIComponent("Hello! I'd like to book a consultation at Verdun Clinic with Dr. Maya Adhami.")
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')
   }
 
   return (
     <main className="min-h-screen scroll-smooth">
       <Navigation onBookClick={handleBookClick} />
       <HeroSection onBookClick={handleBookClick} />
+      <AboutDoctorSection />
+      <SpecialtiesGrid />
       <WhyChooseUsSection />
       <TreatmentsSection onBookClick={handleBookClick} />
       <SpecialOffersSection onBookClick={handleBookClick} />
@@ -63,8 +68,9 @@ export default function HomePage() {
       <LocationSection onBookClick={handleBookClick} />
       <NewsletterSection />
       <Footer onBookClick={handleBookClick} />
-      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       <PromoBanner onBookClick={handleBookClick} />
+      <StickyCTA onBookClick={handleBookClick} />
+      <WhatsAppButton />
       <ScrollToTop />
     </main>
   )

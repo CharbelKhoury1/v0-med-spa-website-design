@@ -6,48 +6,35 @@ import { Award, GraduationCap, Heart } from "lucide-react"
 const providers = [
   {
     id: 1,
-    name: "Dr. Sarah Mitchell",
-    title: "Medical Director",
-    specialty: "Facial Aesthetics & Injectables",
+    name: "Dr. Maya Adhami",
+    title: "ENT & Facial Plastic Surgeon",
+    specialty: "Rhinoplasty & Facial Medical Aesthetics",
     image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop",
-    credentials: ["MD, Board Certified", "15+ Years Experience", "Allergan Master Trainer"],
-    bio: "Dr. Mitchell combines her surgical precision with an artistic eye to create natural-looking results that enhance each patient's unique beauty.",
-  },
-  {
-    id: 2,
-    name: "Dr. James Chen",
-    title: "Cosmetic Dermatologist",
-    specialty: "Laser & Skin Treatments",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop",
-    credentials: ["MD, FAAD", "Harvard Trained", "Laser Safety Certified"],
-    bio: "Dr. Chen specializes in advanced laser technologies and skin rejuvenation treatments, helping patients achieve their skin goals safely.",
-  },
-  {
-    id: 3,
-    name: "Emma Rodriguez, RN",
-    title: "Lead Aesthetic Nurse",
-    specialty: "Injectables & Skincare",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop",
-    credentials: ["BSN, RN", "Certified Injector", "10+ Years Experience"],
-    bio: "Emma brings warmth and expertise to every treatment, with a gentle touch and keen attention to detail that patients love.",
+    credentials: [
+      "ENT & Head and Neck Surgery (Saint George)",
+      "Fellowship: Rhinology & Facial Plastic Surgery (Paris)",
+      "Member of European Academy of Facial Plastic Surgery",
+      "Featured in FORBES Middle East Healthcare"
+    ],
+    bio: "Dr. Maya Adhami is a pioneering specialist in Beirut, combining ENT surgical precision with an artistic mastery of facial aesthetics. Educated at AUB and the University of Balamand, with advanced fellowships in Paris, she was recognized by FORBES Middle East as a healthcare pioneer in 2018.",
   },
 ]
 
 export function ProvidersSection() {
   return (
-    <section id="providers" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="providers" className="py-14 md:py-24 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-primary font-medium uppercase tracking-widest text-sm">
             Expert Care
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mt-3 mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-3 mb-4">
             Meet Our Providers
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -115,9 +102,9 @@ export function ProvidersSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-16 bg-card rounded-2xl p-8 md:p-12"
+          className="mt-10 md:mt-16 bg-card rounded-2xl p-6 sm:p-8 md:p-12"
         >
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {[
               { label: "Combined Years of Experience", value: "50+" },
               { label: "Procedures Performed", value: "25,000+" },

@@ -30,8 +30,8 @@ export function NewsletterSection() {
   }
 
   return (
-    <section className="py-20 bg-primary/5">
-      <div className="container mx-auto px-6">
+    <section className="py-12 md:py-20 bg-primary/5">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export function NewsletterSection() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-4">
             Stay Beautiful, Stay Informed
           </h2>
           <p className="text-muted-foreground mb-8">

@@ -13,27 +13,27 @@ interface SpecialOffersProps {
 const offers = [
   {
     id: 1,
-    title: "New Client Special",
-    description: "First-time visitors receive 20% off any facial treatment",
-    discount: "20% OFF",
-    code: "WELCOME20",
+    title: "New Patient Special",
+    description: "First-time consultation with Dr. Maya Adhami at a reduced rate",
+    discount: "FREE CONSULT",
+    code: "VERDUN2026",
     validUntil: "Limited Time",
     bgClass: "bg-gradient-to-br from-primary/20 via-primary/10 to-transparent",
     featured: true,
   },
   {
     id: 2,
-    title: "HydraFacial Package",
-    description: "Buy 3 HydraFacials, get 1 free",
+    title: "Sculptra Package",
+    description: "Book 3 Sculptra sessions and receive the 4th complimentary",
     discount: "BUY 3 GET 1",
-    validUntil: "Ends Mar 31",
+    validUntil: "Ongoing",
     bgClass: "bg-gradient-to-br from-accent/20 via-accent/10 to-transparent",
     featured: false,
   },
   {
     id: 3,
-    title: "Membership Perks",
-    description: "Join our VIP program and save 15% on all treatments year-round",
+    title: "Referral Reward",
+    description: "Refer a friend and both receive 15% off your next treatment",
     discount: "15% OFF",
     validUntil: "Ongoing",
     bgClass: "bg-gradient-to-br from-secondary via-secondary/50 to-transparent",
@@ -43,19 +43,19 @@ const offers = [
 
 export function SpecialOffersSection({ onBookClick }: SpecialOffersProps) {
   return (
-    <section className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section className="py-14 md:py-24 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-primary font-medium uppercase tracking-widest text-sm">
             Limited Time
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mt-3 mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-3 mb-4">
             Special Offers
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -64,7 +64,7 @@ export function SpecialOffersSection({ onBookClick }: SpecialOffersProps) {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
           {offers.map((offer, index) => (
             <motion.div
               key={offer.id}
@@ -73,7 +73,7 @@ export function SpecialOffersSection({ onBookClick }: SpecialOffersProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={cn(
-                "relative p-8 rounded-2xl border-2 overflow-hidden group",
+                "relative p-6 sm:p-8 rounded-2xl border-2 overflow-hidden group",
                 offer.featured 
                   ? "border-primary bg-card" 
                   : "border-transparent bg-card"
@@ -139,28 +139,35 @@ export function SpecialOffersSection({ onBookClick }: SpecialOffersProps) {
 
 // Floating promo banner component
 export function PromoBanner({ onBookClick }: SpecialOffersProps) {
+  const [mounted, setMounted] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [isDismissed, setIsDismissed] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!isDismissed) {
-        setIsVisible(true)
-      }
-    }, 3000)
-    return () => clearTimeout(timer)
-  }, [isDismissed])
+    setMounted(true)
+  }, [])
 
-  if (isDismissed || !isVisible) return null
+  useEffect(() => {
+    if (mounted) {
+      const timer = setTimeout(() => {
+        if (!isDismissed) {
+          setIsVisible(true)
+        }
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [isDismissed, mounted])
+
+  if (!mounted || isDismissed || !isVisible) return null
 
   return (
     <motion.div
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 100, opacity: 0 }}
-      className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-40"
+      className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-[55] pointer-events-none"
     >
-      <div className="bg-foreground text-background p-4 md:p-6 rounded-2xl shadow-2xl flex items-center gap-4">
+      <div className="bg-foreground text-background p-4 md:p-6 rounded-2xl shadow-2xl flex items-center gap-4 pointer-events-auto">
         <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
           <Gift className="w-6 h-6 text-primary" />
         </div>

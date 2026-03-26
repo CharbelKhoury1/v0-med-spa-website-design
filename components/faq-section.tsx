@@ -33,7 +33,7 @@ const faqs = [
       },
       {
         question: "Is there any downtime after treatments?",
-        answer: "Downtime varies by treatment. Non-invasive treatments like HydraFacial have no downtime - you can return to normal activities immediately. Injectables may cause mild swelling or bruising for 1-3 days. Laser treatments may require 3-7 days of recovery depending on intensity. We'll provide detailed aftercare instructions for your specific treatment.",
+        answer: "Downtime varies by treatment. Non-invasive treatments like Light Eyes Ultra mesotherapy have no downtime - you can return to normal activities immediately. Injectables may cause mild swelling or bruising for 1-3 days. Surgical procedures like rhinoplasty require 7-14 days of recovery. We'll provide detailed aftercare instructions for your specific treatment.",
       },
       {
         question: "Do treatments hurt?",
@@ -127,19 +127,19 @@ export function FAQSection({ onBookClick }: FAQSectionProps) {
   const currentFaqs = faqs.find(f => f.category === activeCategory)?.questions || []
 
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-14 md:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-primary font-medium uppercase tracking-widest text-sm">
             Have Questions?
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mt-3 mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-3 mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -179,7 +179,7 @@ export function FAQSection({ onBookClick }: FAQSectionProps) {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="bg-card rounded-2xl p-6 md:p-8 shadow-sm"
+            className="bg-card rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm"
           >
             {currentFaqs.map((faq, index) => (
               <FAQItem
@@ -198,7 +198,7 @@ export function FAQSection({ onBookClick }: FAQSectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="mt-12 bg-secondary/50 rounded-2xl p-8 text-center"
+            className="mt-12 bg-secondary/50 rounded-2xl p-6 sm:p-8 text-center"
           >
             <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
               <MessageCircle className="w-7 h-7 text-primary" />

@@ -113,24 +113,24 @@ export function BeforeAfterSlider({
 const results = [
   {
     id: 1,
-    treatment: "HydraFacial Series",
+    treatment: "Rhinoplasty Reconstruction",
     beforeImage: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&h=625&fit=crop&sat=-100",
     afterImage: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&h=625&fit=crop",
-    description: "4-treatment series for improved texture and radiance",
+    description: "Functional and aesthetic refinement for facial harmony",
   },
   {
     id: 2,
-    treatment: "Botox & Filler Combo",
+    treatment: "Sculptra & Filler Rejuvenation",
     beforeImage: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=625&fit=crop&sat=-100",
     afterImage: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=625&fit=crop",
-    description: "Natural rejuvenation with strategic placement",
+    description: "Volume restoration and collagen stimulation on the midface",
   },
   {
     id: 3,
-    treatment: "Laser Skin Resurfacing",
+    treatment: "Light Eyes Mesotherapy",
     beforeImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=625&fit=crop&sat=-100",
     afterImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=625&fit=crop",
-    description: "Dramatic improvement in skin texture and tone",
+    description: "Dramatic reduction in dark circles and fine lines",
   },
 ]
 
@@ -138,19 +138,19 @@ export function ResultsSection() {
   const [activeResult, setActiveResult] = useState(0)
 
   return (
-    <section id="results" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="results" className="py-14 md:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-primary font-medium uppercase tracking-widest text-sm">
             Real Results
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mt-3 mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-3 mb-4">
             See the Transformation
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -159,18 +159,21 @@ export function ResultsSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-md mx-auto lg:mx-0"
+            className="w-full max-w-sm mx-auto lg:max-w-md lg:mx-0"
           >
             <BeforeAfterSlider
               beforeImage={results[activeResult].beforeImage}
               afterImage={results[activeResult].afterImage}
             />
+            <p className="text-center text-xs text-muted-foreground mt-3 md:hidden">
+              ← Drag to compare →
+            </p>
           </motion.div>
 
           <motion.div

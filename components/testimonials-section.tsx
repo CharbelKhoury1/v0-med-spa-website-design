@@ -8,38 +8,38 @@ import { cn } from "@/lib/utils"
 const testimonials = [
   {
     id: 1,
-    name: "Jennifer M.",
-    treatment: "HydraFacial & Botox",
+    name: "Nadia K.",
+    treatment: "Rhinoplasty",
     image: "https://i.pravatar.cc/150?img=1",
     rating: 5,
-    text: "I've been coming to Serene Aesthetics for over two years now, and I couldn't be happier with my results. Dr. Mitchell really listens to what I want and always delivers natural-looking results. My friends keep asking what my secret is!",
+    text: "Dr. Maya is a true artist. My rhinoplasty results are so natural that people can't tell I had surgery. Her precision and attention to detail are unmatched. I traveled from Dubai specifically for her and it was absolutely worth it.",
     date: "2 weeks ago",
   },
   {
     id: 2,
-    name: "Michael T.",
-    treatment: "Laser Skin Resurfacing",
+    name: "Rami H.",
+    treatment: "Sculptra & Fillers",
     image: "https://i.pravatar.cc/150?img=3",
     rating: 5,
-    text: "As a guy, I was a bit nervous about my first visit, but the team made me feel completely comfortable. The laser treatment has completely transformed my skin. Worth every penny!",
+    text: "I was nervous about fillers, but Dr. Adhami made me feel completely at ease. The Sculptra treatment gave me a refreshed, youthful look without anyone guessing I had anything done. Highly recommend Verdun Clinic.",
     date: "1 month ago",
   },
   {
     id: 3,
-    name: "Sarah L.",
-    treatment: "Dermal Fillers",
+    name: "Sarah M.",
+    treatment: "Light Eyes Ultra",
     image: "https://i.pravatar.cc/150?img=5",
     rating: 5,
-    text: "Emma is absolutely amazing! She took the time to explain everything and the results are so subtle and natural. I finally have the lip volume I've always wanted without looking overdone.",
+    text: "I struggled with dark circles for years. The Light Eyes Ultra mesotherapy at Verdun Clinic made a remarkable difference after just two sessions. My under-eye area looks brighter and smoother than ever.",
     date: "3 weeks ago",
   },
   {
     id: 4,
-    name: "Rebecca K.",
-    treatment: "Chemical Peel Series",
+    name: "Layla A.",
+    treatment: "Botox & Anti-Aging",
     image: "https://i.pravatar.cc/150?img=9",
     rating: 5,
-    text: "After struggling with acne scars for years, I finally found a solution. The chemical peel series has made such a difference in my skin texture. I feel confident going out without makeup now!",
+    text: "The clinic is beautiful and the staff are incredibly professional. Dr. Maya's Botox technique is so precise — I look refreshed, never frozen. I drive from Jounieh every time because no one else compares.",
     date: "1 month ago",
   },
 ]
@@ -81,24 +81,24 @@ export function TestimonialsSection() {
   }, [activeIndex])
 
   return (
-    <section id="testimonials" className="py-24 bg-background overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="testimonials" className="py-14 md:py-24 bg-background overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-primary font-medium uppercase tracking-widest text-sm">
             Client Stories
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mt-3 mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-3 mb-4">
             What Our Clients Say
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Real stories from real people who have experienced the transformative 
-            care at Serene Aesthetics.
+            care at Verdun Clinic.
           </p>
         </motion.div>
 
@@ -110,7 +110,7 @@ export function TestimonialsSection() {
             </div>
           </div>
 
-          <div className="bg-card rounded-3xl p-8 md:p-12 pt-14 shadow-lg relative overflow-hidden">
+          <div className="bg-card rounded-3xl p-6 sm:p-8 md:p-12 pt-12 sm:pt-14 shadow-lg relative overflow-hidden">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={activeIndex}
@@ -139,7 +139,7 @@ export function TestimonialsSection() {
                   ))}
                 </div>
 
-                <p className="font-serif text-xl md:text-2xl text-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+                <p className="font-serif text-lg sm:text-xl md:text-2xl text-foreground leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto">
                   &quot;{testimonials[activeIndex].text}&quot;
                 </p>
 
@@ -208,7 +208,7 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-60"
+          className="mt-10 md:mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-16 opacity-60"
         >
           {["Google", "Yelp", "RealSelf", "Facebook"].map((platform) => (
             <div key={platform} className="text-center">
