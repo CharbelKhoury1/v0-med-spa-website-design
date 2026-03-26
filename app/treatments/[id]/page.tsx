@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { Check, ArrowLeft } from "lucide-react"
+import { Check, ArrowLeft, Heart } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { BeforeAfterSlider } from "@/components/before-after-slider"
@@ -400,17 +400,14 @@ export default function TreatmentDetailsPage() {
                 </p>
               </div>
             ) : (
-              <div className="max-w-xl mx-auto rounded-3xl border border-border bg-card p-8 sm:p-10">
+              <div className="max-w-xl mx-auto rounded-3xl border border-border bg-card p-8 sm:p-10 shadow-lg">
                 <div className="text-center">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
-                    Results Module (Prototype)
-                  </p>
+                  <Heart className="w-10 h-10 text-primary/20 mx-auto mb-4" />
                   <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
-                    Real before & after photos will be provided by the clinic
+                    Patient Results Gallery
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed max-w-md mx-auto">
-                    For this prototype, we only display real patient result sets once they’re shared with consent.
-                    This section shows exactly where those results will live on the final website.
+                    To respect our patients&apos; privacy and confidentiality, detailed before & after photo galleries are shared during your initial consultation with Dr. Maya Adhami.
                   </p>
                 </div>
               </div>

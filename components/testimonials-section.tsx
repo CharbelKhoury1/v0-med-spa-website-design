@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Quote, Star, Instagram, Facebook, Globe } from "lucide-react"
+import { ChevronLeft, ChevronRight, Quote, Star, Instagram, Facebook, Globe, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 const testimonials = [
   {
@@ -43,9 +44,6 @@ const testimonials = [
     date: "1 month ago",
   },
 ]
-
-import Image from "next/image"
-import { CheckCircle2 } from "lucide-react"
 
 export function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -90,9 +88,8 @@ export function TestimonialsSection() {
 
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-secondary/20 overflow-hidden relative">
-      {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -109,7 +106,7 @@ export function TestimonialsSection() {
             Trusted by <span className="text-primary italic">Thousand Patients</span>
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Real experiences from patients who entrusted their health and beauty 
+            Real experiences from patients who entrusted their health and beauty
             to Dr. Maya Adhami and the Verdun Clinic team.
           </p>
         </motion.div>
@@ -124,13 +121,12 @@ export function TestimonialsSection() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ 
+                transition={{
                   x: { type: "spring", stiffness: 300, damping: 30 },
                   opacity: { duration: 0.4 }
                 }}
                 className="grid md:grid-cols-[1fr_1.5fr] gap-0 md:gap-12 bg-white rounded-[3rem] overflow-hidden shadow-2xl shadow-primary/5 border border-primary/10"
               >
-                {/* Image & Service Column */}
                 <div className="relative h-[300px] md:h-full min-h-[400px]">
                   <Image
                     src={testimonials[activeIndex].image}
@@ -146,12 +142,11 @@ export function TestimonialsSection() {
                   </div>
                 </div>
 
-                {/* Content Column */}
                 <div className="p-8 sm:p-12 md:p-16 flex flex-col justify-center relative">
                   <div className="hidden md:block absolute top-12 right-16">
                     <Quote className="w-20 h-20 text-primary/5 rotate-180" />
                   </div>
-                  
+
                   <div className="flex items-center gap-1 mb-8">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <Star key={s} className="w-5 h-5 fill-primary text-primary" />
@@ -163,7 +158,7 @@ export function TestimonialsSection() {
                     <p className="font-serif text-xl sm:text-2xl md:text-3xl text-foreground leading-[1.4] mb-10 italic">
                       &ldquo;{testimonials[activeIndex].text}&rdquo;
                     </p>
-                    
+
                     <footer className="flex items-center justify-between border-t border-secondary pt-8">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
@@ -179,7 +174,7 @@ export function TestimonialsSection() {
 
                       <div className="hidden sm:flex items-center gap-2">
                         <div className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center font-serif italic text-primary font-bold">
-                           VA
+                          VA
                         </div>
                       </div>
                     </footer>
@@ -188,7 +183,6 @@ export function TestimonialsSection() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Controls */}
             <div className="flex items-center justify-center md:justify-start gap-4 mt-12 px-6">
               <button
                 onClick={() => paginate(-1)}
@@ -224,7 +218,6 @@ export function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Global Stats Footer */}
         <div className="mt-24 pt-20 border-t border-primary/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center items-center">
             <div className="flex flex-col items-center">
@@ -235,19 +228,19 @@ export function TestimonialsSection() {
               <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-1">Google Reviews</p>
             </div>
             <div className="flex flex-col items-center">
-               <Instagram className="w-8 h-8 text-primary/40 mb-3" />
-               <p className="text-3xl font-bold text-foreground">15k+</p>
-               <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-1">Instagram Followers</p>
+              <Instagram className="w-8 h-8 text-primary/40 mb-3" />
+              <p className="text-3xl font-bold text-foreground">15k+</p>
+              <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-1">Instagram Followers</p>
             </div>
             <div className="flex flex-col items-center">
-               <CheckCircle2 className="w-8 h-8 text-primary/40 mb-3" />
-               <p className="text-3xl font-bold text-foreground">100%</p>
-               <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-1">Patient Safety Record</p>
+              <CheckCircle2 className="w-8 h-8 text-primary/40 mb-3" />
+              <p className="text-3xl font-bold text-foreground">100%</p>
+              <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-1">Patient Safety Record</p>
             </div>
             <div className="flex flex-col items-center">
-               <Globe className="w-8 h-8 text-primary/40 mb-3" />
-               <p className="text-3xl font-bold text-foreground">40+</p>
-               <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-1">Countries Served</p>
+              <Globe className="w-8 h-8 text-primary/40 mb-3" />
+              <p className="text-3xl font-bold text-foreground">40+</p>
+              <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-1">Countries Served</p>
             </div>
           </div>
         </div>

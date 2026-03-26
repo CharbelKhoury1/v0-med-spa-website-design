@@ -129,18 +129,14 @@ export default function BookingPage() {
               >
                 <Heart className="w-8 h-8 text-primary" />
               </motion.div>
-              <div className="flex items-center justify-center mb-4">
-                <span className="inline-flex items-center rounded-full bg-accent/15 text-accent px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] border border-accent/20">
-                  Prototype Preview
-                </span>
-              </div>
+
               <h1 className="font-serif text-4xl font-semibold text-foreground mb-4">
                 {step === 5 ? "Booking Confirmed" : "Book Your Appointment"}
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground text-lg italic uppercase tracking-widest font-medium">
                 {step === 5 
-                  ? "Request received in demo mode. No real appointment has been created."
-                  : "Experience a realistic booking flow — demo only (front-end prototype)."}
+                  ? "Your request has been received. Our team will contact you shortly."
+                  : "Book your appointment with Dr. Maya Adhami."}
               </p>
             </div>
 
@@ -395,13 +391,7 @@ export default function BookingPage() {
                           <h2 className="text-xl font-semibold text-foreground">Your Information</h2>
                         </div>
 
-                        <div className="rounded-2xl border border-border bg-muted/40 px-5 py-4">
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            This is a <span className="font-semibold text-foreground">front-end prototype</span>. Submitting will
-                            show a confirmation screen for review — it will <span className="font-semibold text-foreground">not</span>{" "}
-                            contact the clinic or create a real appointment.
-                          </p>
-                        </div>
+
 
                         <div className="grid sm:grid-cols-2 gap-4">
                           <div className="space-y-1.5">
@@ -464,7 +454,7 @@ export default function BookingPage() {
                           onClick={handleSubmit}
                           className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 rounded-2xl text-lg mt-4 shadow-lg shadow-primary/20"
                         >
-                          Submit Request (Demo)
+                          Submit Booking Request
                         </Button>
                       </motion.div>
                     )}
@@ -480,10 +470,9 @@ export default function BookingPage() {
                         <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8">
                           <Check className="w-12 h-12 text-primary" />
                         </div>
-                        <h2 className="font-serif text-3xl font-semibold mb-3">Request Received (Prototype)</h2>
+                        <h2 className="font-serif text-3xl font-semibold mb-3">Request Received</h2>
                         <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                          This is a demo confirmation screen for the clinic to review the experience.
-                          No email, SMS, or calendar booking was sent.
+                          Thank you for choosing Verdun Clinic. We have received your request and our clinical coordinator will reach out to you within 24 hours to confirm your appointment.
                         </p>
                         
                         <div className="bg-muted/50 rounded-3xl p-8 text-left border border-border mb-10">
@@ -509,44 +498,7 @@ export default function BookingPage() {
                           </div>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
-                          <Button
-                            variant="outline"
-                            className="rounded-full px-8 h-12"
-                            onClick={async () => {
-                              try {
-                                const payload = JSON.stringify(buildDemoRequest(), null, 2)
-                                await navigator.clipboard.writeText(payload)
-                                setCopied(true)
-                                window.setTimeout(() => setCopied(false), 1500)
-                              } catch {
-                                // ignore clipboard failures in prototype
-                              }
-                            }}
-                          >
-                            {copied ? "Copied!" : "Copy Request Summary"}
-                          </Button>
-                          <Button
-                            variant="outline"
-                            className="rounded-full px-8 h-12"
-                            onClick={() => {
-                              try {
-                                const payload = JSON.stringify(buildDemoRequest(), null, 2)
-                                const blob = new Blob([payload], { type: "application/json" })
-                                const url = URL.createObjectURL(blob)
-                                const a = document.createElement("a")
-                                a.href = url
-                                a.download = "verdun-clinic-prototype-request.json"
-                                a.click()
-                                URL.revokeObjectURL(url)
-                              } catch {
-                                // ignore download failures in prototype
-                              }
-                            }}
-                          >
-                            Download JSON
-                          </Button>
-                        </div>
+
 
                         <Link href="/">
                           <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 rounded-full text-lg shadow-lg shadow-primary/20 transition-all active:scale-95">
@@ -600,7 +552,7 @@ export default function BookingPage() {
 
                       <div className="pt-2">
                         <p className="text-xs text-muted-foreground leading-relaxed italic">
-                          Demo only — no real booking will be created. Price and duration will be confirmed during consultation.
+                          Price and duration will be confirmed by Dr. Maya Adhami during your consultation.
                         </p>
                       </div>
                     </div>
