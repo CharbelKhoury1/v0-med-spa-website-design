@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Phone } from "lucide-react"
+import { Menu, X, Phone, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Magnetic } from "@/components/nano-banana/magnetic"
@@ -165,74 +165,83 @@ export function Navigation({ onBookClick }: NavigationProps) {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Backdrop */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="lg:hidden absolute top-full left-2 right-2 mt-2 bg-background/98 backdrop-blur-xl shadow-2xl overflow-hidden rounded-2xl border border-primary/10"
-          >
-            <nav className="container mx-auto px-6 py-6 flex flex-col gap-1">
-              {navLinks.map((link, i) => {
-                const active = isLinkActive(link.href, link.id)
-                return (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "text-lg font-medium py-4 border-b border-border last:border-0 transition-colors flex items-center justify-between group",
-                        active ? "text-primary border-primary/30" : "text-foreground"
-                      )}
-                      onClick={() => setIsMobileMenuOpen(false)}
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="lg:hidden fixed inset-0 bg-background/20 backdrop-blur-md z-[45]"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="lg:hidden absolute top-full left-2 right-2 mt-2 bg-white/95 backdrop-blur-2xl shadow-2xl overflow-hidden rounded-[2rem] border border-primary/10 z-50 origin-top"
+            >
+              <nav className="px-6 py-8 flex flex-col gap-2">
+                {navLinks.map((link, i) => {
+                  const active = isLinkActive(link.href, link.id)
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + i * 0.04 }}
                     >
-                      {link.label}
-                      <motion.div
-                        animate={{ x: active ? 5 : 0 }}
+                      <Link
+                        href={link.href}
                         className={cn(
-                          "h-5 w-5 transition-transform",
-                          active ? "text-primary" : "text-muted-foreground opacity-30 group-hover:opacity-100"
+                          "text-xl font-medium py-3 px-4 rounded-xl transition-all flex items-center justify-between group",
+                          active ? "bg-primary/5 text-primary" : "text-foreground active:bg-secondary/50"
                         )}
+                        onClick={() => setIsMobileMenuOpen(false)}
                       >
-                         <Menu className="h-4 w-4 rotate-[-90deg]" />
-                      </motion.div>
-                    </Link>
-                  </motion.div>
-                )
-              })}
-              <motion.div 
-                className="flex flex-col gap-4 mt-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <a
-                  href="tel:+96171230515"
-                  className="flex items-center justify-center gap-3 text-lg font-bold text-foreground bg-secondary/50 py-4 rounded-xl border border-primary/10 transition-colors active:bg-secondary"
+                        <span className="font-serif">{link.label}</span>
+                        <motion.div
+                          animate={{ x: active ? 4 : 0 }}
+                          className={cn(
+                            "h-5 w-5 transition-transform",
+                            active ? "text-primary" : "text-muted-foreground opacity-20 group-hover:opacity-100"
+                          )}
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </motion.div>
+                      </Link>
+                    </motion.div>
+                  )
+                })}
+                <motion.div 
+                  className="flex flex-col gap-3 mt-8"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
                 >
-                  <Phone className="h-5 w-5 text-primary" />
-                  +961 71 230 515
-                </a>
-                <Button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false)
-                    if (onBookClick) onBookClick()
-                    else router.push("/book")
-                  }}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-lg rounded-xl shadow-xl shadow-primary/20"
-                >
-                  Book Now
-                </Button>
-              </motion.div>
-            </nav>
-          </motion.div>
+                  <a
+                    href="tel:+96171230515"
+                    className="flex items-center justify-center gap-3 text-lg font-bold text-foreground bg-secondary/30 py-4 rounded-2xl border border-primary/5 active:bg-secondary/50 transition-colors"
+                  >
+                    <Phone className="h-5 w-5 text-primary" />
+                    +961 71 230 515
+                  </a>
+                  <Button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false)
+                      if (onBookClick) onBookClick()
+                      else router.push("/book")
+                    }}
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-lg rounded-2xl shadow-xl shadow-primary/20 font-bold"
+                  >
+                    Book Now
+                  </Button>
+                </motion.div>
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

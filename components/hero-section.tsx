@@ -24,8 +24,8 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary/20 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container mx-auto px-4 sm:px-6 pt-16 sm:pt-32 pb-12 sm:pb-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -92,7 +92,7 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
                   <p className="text-2xl sm:text-3xl font-bold text-foreground mb-1">
                     <Counter to={92} suffix="%" duration={2} />
                   </p>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-widest font-bold">Recommendation</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-widest font-bold">Rec. Rate</p>
                </div>
             </div>
           </motion.div>
@@ -121,7 +121,7 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
               initial={{ opacity: 0, scale: 0.5, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="absolute -bottom-6 sm:-bottom-10 left-4 sm:-left-10 bg-white p-4 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-2xl border border-black/5 max-w-[220px] sm:max-w-[260px] z-20"
+              className="absolute -bottom-6 sm:-bottom-10 left-4 sm:-left-10 bg-white p-4 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-2xl border border-black/5 max-w-[200px] sm:max-w-[260px] z-20"
             >
               <div className="flex items-center gap-2 mb-3">
                  <div className="flex text-accent">
@@ -129,7 +129,7 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
                       <Star key={i} className="h-4 w-4 fill-current" />
                     ))}
                  </div>
-                 <span className="text-xs font-bold text-muted-foreground">92% RECOMMENDATION</span>
+                 <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none">92% Rec. Rate</span>
               </div>
               <p className="text-sm text-foreground font-medium italic leading-relaxed">
                 &quot;The precision of Dr. Maya&apos;s work is unmatched. A true artist of facial aesthetics.&quot;

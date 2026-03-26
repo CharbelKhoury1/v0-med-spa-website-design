@@ -11,16 +11,16 @@ const faqs = [
     category: "General",
     questions: [
       {
-        question: "What should I expect during my first visit?",
-        answer: "Your first visit begins with a comprehensive consultation where we discuss your aesthetic goals, medical history, and concerns. Our provider will perform an assessment and create a personalized treatment plan. There's no obligation to proceed with treatment on the same day - we want you to feel completely comfortable with your decision.",
+        question: "Why choose Dr. Maya Adhami for your treatment?",
+        answer: "Dr. Maya Adhami is a board-certified ENT and Facial Plastic Surgeon with specialized training from Paris, France. She combines European precision with a deep understanding of Mediterranean aesthetics, ensuring results that look natural and authentic to your heritage.",
       },
       {
-        question: "How do I know which treatment is right for me?",
-        answer: "During your consultation, our expert providers will evaluate your skin, discuss your goals, and recommend the most suitable treatments. We believe in a customized approach - what works for one person may not be ideal for another. We'll explain all options, expected outcomes, and help you make an informed decision.",
+        question: "Is the clinic easy to reach in Verdun?",
+        answer: "Yes, we are conveniently located in Tallet El Khayyat, Verdun—the heart of Beirut. We offer ample parking nearby, making your visit stress-free even during busy hours.",
       },
       {
-        question: "Are your treatments safe?",
-        answer: "Absolutely. We only use FDA-approved products and devices, and all treatments are performed by licensed, experienced professionals. Our medical director oversees all procedures, ensuring the highest safety standards are maintained. We also conduct thorough consultations to identify any contraindications.",
+        question: "Do you welcome international patients?",
+        answer: "Absolutely. We frequently welcome the Lebanese diaspora and international patients. We can assist with virtual consultations prior to your visit to Beirut and help coordinate your treatment timeline.",
       },
     ],
   },
@@ -28,29 +28,29 @@ const faqs = [
     category: "Treatments",
     questions: [
       {
-        question: "How long do Botox results last?",
-        answer: "Botox results typically last 3-4 months for most patients. However, with regular treatments, you may notice that results begin to last longer over time as the muscles become trained. We recommend scheduling your follow-up appointment before your results fully wear off to maintain optimal results.",
+        question: "What is 'Natural Refinement' in Rhinoplasty?",
+        answer: "In Lebanon, we value character and elegance. Dr. Maya's approach to Rhinoplasty focuses on 'Natural Refinement'—correcting breathing and structural issues while enhancing your natural features without that 'operated' look.",
       },
       {
-        question: "Is there any downtime after treatments?",
-        answer: "Downtime varies by treatment. Non-invasive treatments like Light Eyes Ultra mesotherapy have no downtime - you can return to normal activities immediately. Injectables may cause mild swelling or bruising for 1-3 days. Surgical procedures like rhinoplasty require 7-14 days of recovery. We'll provide detailed aftercare instructions for your specific treatment.",
+        question: "Are the products used FDA or CE approved?",
+        answer: "We prioritize your safety above all else. Every product used at Verdun Clinic, from Botox to Sculptra, is 100% authentic and FDA or CE approved, sourced from the highest-quality global brands.",
       },
       {
-        question: "Do treatments hurt?",
-        answer: "We prioritize your comfort during all procedures. Most treatments involve minimal discomfort. For injectables, we use ultra-fine needles and can apply topical numbing cream. Many of our laser devices have built-in cooling systems. Our patients often describe treatments as feeling like a slight pinch or warm sensation.",
+        question: "What is the downtime after Sculptra or Fillers?",
+        answer: "Most of our aesthetic treatments have minimal 'downtime'. You can typically return to your social life in Beirut within 24-48 hours. Any minor swelling or bruising can be easily managed with our detailed post-care protocols.",
       },
     ],
   },
   {
-    category: "Booking & Pricing",
+    category: "Payment & Booking",
     questions: [
       {
-        question: "Do you offer financing options?",
-        answer: "Yes! We partner with CareCredit and Cherry to offer flexible financing options with 0% interest plans available for qualified applicants. We believe everyone should have access to the treatments they desire, and we're happy to discuss payment plans during your consultation.",
+        question: "What payment methods do you accept?",
+        answer: "We accept payments in Fresh USD, as well as international and local credit/debit cards. Our team will provide a clear breakdown of costs during your consultation so there are no surprises.",
       },
       {
-        question: "What is your cancellation policy?",
-        answer: "We understand that schedules change. We request at least 24 hours notice for cancellations or rescheduling. Cancellations with less than 24 hours notice may be subject to a $50 fee. For our courtesy and to accommodate other patients who may be waiting, we appreciate your understanding.",
+        question: "How far in advance should I book my surgery?",
+        answer: "For surgical procedures like Rhinoplasty, we recommend booking 2-4 weeks in advance, especially during the summer and holiday seasons when demand is high from both local and visiting patients.",
       },
     ],
   },

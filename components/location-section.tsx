@@ -31,13 +31,13 @@ export function LocationSection({ onBookClick }: LocationSectionProps) {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Info Side */}
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-16 items-start mb-12"
           >
             <div className="space-y-8">
               <div className="flex items-start gap-4">
@@ -63,7 +63,12 @@ export function LocationSection({ onBookClick }: LocationSectionProps) {
                   <p className="text-muted-foreground">verdunclinic@gmail.com</p>
                 </div>
               </div>
+            </div>
 
+            {/* Vertical Divider for desktop */}
+            <div className="hidden md:block w-px h-full bg-border/50" />
+
+            <div className="space-y-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                   <Clock className="h-6 w-6" />
@@ -80,32 +85,35 @@ export function LocationSection({ onBookClick }: LocationSectionProps) {
                   </div>
                 </div>
               </div>
-
-              <Button
-                onClick={() => window.open('https://maps.app.goo.gl/K7WDRa3uiRtzS516A', '_blank')}
-                className="w-full sm:w-auto px-8 py-6 rounded-full text-lg font-bold"
-              >
-                Get Directions
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </Button>
             </div>
           </motion.div>
 
-          {/* Map Side */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative aspect-square sm:aspect-video lg:aspect-square rounded-[3rem] overflow-hidden shadow-2xl border border-black/5"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col items-center gap-10"
           >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13248.81423719047!2d35.4839845!3d33.88243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f16e1e6e8e8e8%3A0x1e8e8e8e8e8e8e8!2sVerdun%2C%20Beirut%2C%20Lebanon!5e0!3m2!1sen!2slb!4v1709844723456!5m2!1sen!2slb"
-              className="w-full h-full border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <div className="w-full flex justify-center">
+              <Button
+                onClick={() => window.open('https://maps.app.goo.gl/K7WDRa3uiRtzS516A', '_blank')}
+                className="w-full sm:w-auto px-12 py-7 rounded-full text-xl font-bold bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/20"
+              >
+                Get Directions
+                <Navigation className="ml-2 h-6 w-6" />
+              </Button>
+            </div>
+
+            <div className="relative w-full aspect-square sm:aspect-video rounded-[3rem] overflow-hidden shadow-2xl border border-black/5 bg-white">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.339243764434!2d35.48529241517031!3d33.88219098065261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f172782e38c91%3A0xc66db1d4f20ec719!2sVerdun%2C%20Beirut%2C%20Lebanon!5e0!3m2!1sen!2slb!4v1711494723456!5m2!1sen!2slb"
+                className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
