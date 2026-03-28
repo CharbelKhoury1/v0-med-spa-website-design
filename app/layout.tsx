@@ -3,6 +3,7 @@ import { Fraunces, Outfit } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SparkleClick } from '@/components/nano-banana/sparkle-click'
 import { Spotlight } from '@/components/nano-banana/spotlight'
+import { VoiceAgentWidget } from '@/components/voice-agent-widget'
 import { StructuredData } from '@/components/structured-data'
 import './globals.css'
 
@@ -61,6 +62,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -69,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${outfit.variable} light`}>
       <body className="font-sans antialiased">
         <StructuredData />
         <Spotlight />
