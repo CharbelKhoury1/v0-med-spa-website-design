@@ -4,7 +4,7 @@ import { WhyChooseUsSection } from "@/components/why-choose-us"
 import { TreatmentsSection } from "@/components/treatments-section"
 import { Footer } from "@/components/footer"
 import { SpecialtiesGrid } from "@/components/specialties-grid"
-import { WhatsAppButton } from "@/components/whatsapp-button"
+// import { WhatsAppButton } from "@/components/whatsapp-button"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { SmoothScroll } from "@/components/smooth-scroll"
 
@@ -19,7 +19,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <WhyChooseUsSection />
       <Footer />
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
     </main>
   )
 }
