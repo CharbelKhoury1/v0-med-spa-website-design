@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Verdun Clinic by Dr. Maya Adhami | ENT & Facial Plastic Surgery',
     description: 'Expert medical and aesthetic care in Beirut. Specializing in natural-looking results through precise surgical and non-surgical treatments.',
-    url: 'https://verdunclinic.com',
+    url: 'https://v0-med-spa-website-design-alpha.vercel.app',
     siteName: 'Verdun Clinic',
     images: [
       {
