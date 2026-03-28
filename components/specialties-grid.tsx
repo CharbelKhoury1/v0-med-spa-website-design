@@ -6,34 +6,34 @@ import { Syringe, Scissors, Sparkles, Stethoscope, HeartPulse } from "lucide-rea
 
 const specialties = [
   {
-    title: "Face & Skin Aesthetics",
-    description: "Look your best with fillers, botox, and glow treatments.",
-    icon: Syringe,
-    color: "from-pink-500/20 to-pink-500/5 text-pink-500",
-  },
-  {
     title: "Facial Surgery",
-    description: "Expert nose and face surgery for a natural, refined look.",
+    description: "Expert rhinoplasty and facial refinement for a natural, balanced look and improved function.",
     icon: Scissors,
-    color: "from-blue-500/20 to-blue-500/5 text-blue-500",
+    color: "from-primary/20 to-primary/5 text-primary",
   },
   {
-    title: "Skin Care",
-    description: "Keep your skin healthy and clear with medical and cosmetic care.",
+    title: "Medical Aesthetics",
+    description: "Look your best with fillers, neurotoxins, and regenerative treatments like Sculptra.",
+    icon: Syringe,
+    color: "from-accent/20 to-accent/5 text-accent",
+  },
+  {
+    title: "Skin Rejuvenation",
+    description: "Advanced mesotherapy and skincare treatments to restore your skin's youthful glow.",
     icon: Sparkles,
-    color: "from-purple-500/20 to-purple-500/5 text-purple-500",
+    color: "from-primary/20 to-primary/5 text-primary",
   },
   {
-    title: "Ear, Nose & Throat",
-    description: "Professional care for your breathing, hearing, and throat health.",
+    title: "ENT Services",
+    description: "Comprehensive care for your breathing, sinus and throat health with surgical precision.",
     icon: Stethoscope,
-    color: "from-green-500/20 to-green-500/5 text-green-500",
+    color: "from-accent/20 to-accent/5 text-accent",
   },
   {
-    title: "Heart Health",
-    description: "Expert check-ups to keep your heart strong.",
+    title: "Natural Refinement",
+    description: "Our signature philosophy combining Mediterranean aesthetics with French precision.",
     icon: HeartPulse,
-    color: "from-red-500/20 to-red-500/5 text-red-500",
+    color: "from-primary/20 to-primary/5 text-primary",
   },
 ]
 

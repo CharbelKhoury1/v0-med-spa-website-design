@@ -40,7 +40,7 @@ export function HeroSection({ onBookClick }: HeroSectionProps) {
               Featured in FORBES Middle East
             </div>
             
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl font-extrabold text-foreground leading-[1.1] mb-6 sm:mb-8">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl font-bold text-foreground tracking-tight leading-[1.05] mb-6 sm:mb-8">
               The Art of <br />
               <span className="text-primary italic font-light drop-shadow-sm">Natural Refinement</span>
             </h1>
