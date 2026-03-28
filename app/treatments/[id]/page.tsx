@@ -227,8 +227,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const treatment = treatmentData[params.id]
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const treatment = treatmentData[id]
   if (!treatment) return { title: "Treatment Not Found" }
 
   return {
@@ -237,15 +238,13 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 }
 
-export default function TreatmentDetailsPage({ params }: { params: { id: string } }) {
-  const treatment = treatmentData[params.id]
+export default async function TreatmentDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const treatment = treatmentData[id]
 
   if (!treatment) {
     notFound()
   }
-
-  // Server Components don't support hooks like useRouter, so we don't pass handleBookClick here.
-  // The client component treatment-client will handle its own routing if needed.
   
   return (
     <TreatmentClientContent 
