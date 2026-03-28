@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SparkleClick } from '@/components/nano-banana/sparkle-click'
 import { Spotlight } from '@/components/nano-banana/spotlight'
 import { StructuredData } from '@/components/structured-data'
+import { ChatWidget } from '@/components/chat-widget'
 import './globals.css'
 
 const fraunces = Fraunces({ 
@@ -80,6 +81,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SparkleClick />
+        <ChatWidget />
       </body>
     </html>
   )
