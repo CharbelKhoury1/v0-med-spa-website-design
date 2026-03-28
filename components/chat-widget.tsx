@@ -18,7 +18,8 @@ export function ChatWidget() {
       region: 'eu',
       render: 'bottom-right',
       stylesheets: [
-        "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
+        "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+        "/chat-fix.css"
       ],
       // Optional: Add user data if needed here
     }

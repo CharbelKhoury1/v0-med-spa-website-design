@@ -1,0 +1,35 @@
+/* Fix for VoiceGlow chat widget transparency */
+/* Targeting the root container and all its potential background elements */
+.vg-render-container, 
+.vg-render-container [data-theme], 
+.vg-render-container .bg-background,
+.vg-render-container .vg-bg-background,
+.vg-render-container .vg-chat-container,
+.vg-render-container .vg-chat-window,
+.vg-render-container .vg-main-container {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Specific fix for the main chat body area and any growable flex containers */
+.vg-render-container .vg-flex-grow,
+.vg-render-container .vg-grow,
+.vg-render-container .vg-content-area,
+.vg-render-container .vg-messages-container {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Override any transparent background classes */
+.vg-render-container .vg-bg-transparent,
+.vg-render-container .bg-transparent,
+.vg-render-container .vg-bg-opacity-0,
+.vg-render-container .bg-opacity-0 {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Ensure the overlay container itself isn't introducing transparency */
+#VG_OVERLAY_CONTAINER {
+  opacity: 1 !important;
+}

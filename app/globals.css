@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
   --background: oklch(1.0 0 0);
   --foreground: oklch(0.20 0.02 30);
@@ -24,28 +22,6 @@
   --input: oklch(0.92 0.02 30);
   --ring: oklch(0.68 0.18 15);
   --radius: 2rem;
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.202 0.033 345.222);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
 }
 
 @theme inline {
@@ -141,12 +117,23 @@
   color: var(--primary-foreground);
 }
 
-/* Hide scrollbar but keep scroll functionality */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Fix for VoiceGlow chat widget transparency */
+#VG_OVERLAY_CONTAINER .vg-render-container,
+#VG_OVERLAY_CONTAINER [data-theme],
+#VG_OVERLAY_CONTAINER .bg-background,
+#VG_OVERLAY_CONTAINER .vg-bg-background,
+#VG_OVERLAY_CONTAINER .vg-chat-container {
+  background-color: white !important;
+  opacity: 1 !important;
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
