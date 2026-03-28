@@ -22,6 +22,12 @@
   --input: oklch(0.92 0.02 30);
   --ring: oklch(0.68 0.18 15);
   --radius: 2rem;
+
+  /* VoiceGlow / NextUI variables for light mode */
+  --vg-nextui-background: 0 0% 100%;
+  --vg-nextui-foreground: 0 0% 0%;
+  --vg-nextui-primary: 345 75% 65%;
+  --vg-nextui-primary-foreground: 0 0% 100%;
 }
 
 @theme inline {
@@ -117,16 +123,6 @@
   color: var(--primary-foreground);
 }
 
-/* Fix for VoiceGlow chat widget transparency */
-#VG_OVERLAY_CONTAINER .vg-render-container,
-#VG_OVERLAY_CONTAINER [data-theme],
-#VG_OVERLAY_CONTAINER .bg-background,
-#VG_OVERLAY_CONTAINER .vg-bg-background,
-#VG_OVERLAY_CONTAINER .vg-chat-container {
-  background-color: white !important;
-  opacity: 1 !important;
-}
-
 @layer utilities {
   .scrollbar-hide {
     -ms-overflow-style: none;
@@ -136,4 +132,41 @@
     display: none;
   }
 }
+
+/* Chat Widget Custom Styling */
+
+/* 1. Definitive Fix for Background Transparency */
+/* This targets the root overlay and all major background containers */
+#VG_OVERLAY_CONTAINER .vg-render-container,
+#VG_OVERLAY_CONTAINER [class*="chat-window"],
+#VG_OVERLAY_CONTAINER [class*="main-container"],
+#VG_OVERLAY_CONTAINER [class*="chat-body"],
+#VG_OVERLAY_CONTAINER [class*="content-area"] {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* 2. Carousel and Controls Styling */
+/* Enforce consistent size for carousel images */ 
+.vg-card-image { 
+  width: 100%;               /* Fill container width */ 
+  height: 200px;             /* Fixed height for uniformity */ 
+  object-fit: cover;         /* Maintain aspect ratio, crop if needed */ 
+  aspect-ratio: unset !important; /* Disable auto aspect ratio */ 
+  border-radius: 12px;       /* Optional: rounded corners for style */ 
+  margin: 0 auto;            /* Center if needed */ 
+} 
+
+/* Position widget controls in bottom-right corner */ 
+.vg-widget-controls-container { 
+  bottom: 20px !important; 
+  right: 20px !important; 
+} 
+
+/* Ensure widget appears on top and scrolls when content overflows */ 
+.vg-root { 
+  z-index: 1000 !important; 
+  overflow: auto !important; 
+}
+
 

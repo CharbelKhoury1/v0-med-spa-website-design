@@ -1,0 +1,25 @@
+/* VoiceGlow Chat Widget Internal Fix */
+
+/* 1. Force Solid Background on Main Window */
+.vg-render-container [class*="chat-window"],
+.vg-render-container [class*="main-container"],
+.vg-render-container [class*="chat-body"],
+.vg-render-container [class*="content-area"],
+.vg-render-container .bg-background,
+.vg-render-container .vg-bg-background {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* 2. Target Specific Flex Containers often used for message lists */
+.vg-render-container .vg-flex-grow,
+.vg-render-container .vg-grow {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* 3. Ensure the bubble/trigger is round */
+.vg-render-container [class*="bubble"] {
+  border-radius: 50% !important;
+  background-color: white !important;
+}

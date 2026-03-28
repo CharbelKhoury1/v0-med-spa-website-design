@@ -12,49 +12,35 @@ import { useEffect } from "react"
  */
 export function ChatWidget() {
   useEffect(() => {
-    // Configure VoiceGlow Agent
+    // Configure VoiceGlow Agent based on user snippet
     window.VG_CONFIG = {
-      ID: "osFN4Fpizkx4bMmAHL8m",
-      region: 'eu',
-      render: 'bottom-right',
-      stylesheets: [
-        "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
-        "/chat-fix.css"
-      ],
-      // Optional: Add user data if needed here
+      ID: "osFN4Fpizkx4bMmAHL8m", // YOUR AGENT ID 
+      region: 'eu', // YOUR ACCOUNT REGION  
+      render: 'bottom-right', // Widget position 
+      stylesheets: [ 
+          "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+          window.location.origin + "/chat-internal.css"
+      ], 
     }
 
-    // Load VoiceGlow Bundle
-    const script = document.createElement("script")
-    script.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js"
-    script.defer = true
-    
-    document.body.appendChild(script)
+    // Load VoiceGlow Bundle exactly as provided in the snippet
+    var VG_SCRIPT = document.createElement("script"); 
+    VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js"; 
+    VG_SCRIPT.defer = true; // Remove 'defer' if you want widget to load faster (Will affect website loading) 
+    document.body.appendChild(VG_SCRIPT); 
 
-    // Cleanup script on unmount if necessary
+    // Cleanup script on unmount
     return () => {
-      if (document.body.contains(script)) {
-        // We typically don't remove chat scripts as they might leave orphans,
-        // but for a clean SPA experience we could.
-        // document.body.removeChild(script)
+      if (document.body.contains(VG_SCRIPT)) {
+        document.body.removeChild(VG_SCRIPT);
       }
     }
   }, [])
 
   return (
-    <div 
-      id="VG_OVERLAY_CONTAINER" 
-      style={{ 
-        width: 0, 
-        height: 0, 
-        position: 'fixed', 
-        bottom: 0, 
-        right: 0, 
-        zIndex: 9999 
-      }}
-    >
-      {/* The chatbot will be rendered inside this container or relative to it */}
-    </div>
+    <div style={{ width: 0, height: 0 }} id="VG_OVERLAY_CONTAINER"> 
+        {/* Here is where renders the widget. */} 
+    </div> 
   )
 }
 
